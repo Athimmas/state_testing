@@ -121,10 +121,14 @@ implicit none
       mwjfnums1t0 = mwjfnp0s1t0 + p*mwjfnp1s1t0
       mwjfnums1t1 = mwjfnp0s1t1
       mwjfnums2t0 = mwjfnp0s2t0
-
-      WORK1 = mwjfnums0t0 + TQ * (mwjfnums0t1 + TQ * (mwjfnums0t2 + &
-              mwjfnums0t3 * TQ)) + SQ * (mwjfnums1t0 +              &
-              mwjfnums1t1 * TQ + mwjfnums2t0 * SQ)
+       
+      do j=1,ny_block
+      do i=1,nx_block
+      WORK1(i,j) = mwjfnums0t0 + TQ(i,j) * (mwjfnums0t1 + TQ(i,j) * (mwjfnums0t2 + &
+              mwjfnums0t3 * TQ(i,j))) + SQ(i,j) * (mwjfnums1t0 +              &
+              mwjfnums1t1 * TQ(i,j) + mwjfnums2t0 * SQ(i,j) )
+      enddo
+      enddo
 
       !***
       !*** now calculate denominator of MWJF density [P_2(S,T,p)]
@@ -141,10 +145,15 @@ implicit none
       mwjfdensqt0 = mwjfdp0sqt0
       mwjfdensqt2 = mwjfdp0sqt2
 
-      WORK2 = mwjfdens0t0 + TQ * (mwjfdens0t1 + TQ * (mwjfdens0t2 +    &
-           TQ * (mwjfdens0t3 + mwjfdens0t4 * TQ))) +                   &
-           SQ * (mwjfdens1t0 + TQ * (mwjfdens1t1 + TQ*TQ*mwjfdens1t3)+ &
-           SQR * (mwjfdensqt0 + TQ*TQ*mwjfdensqt2))
+
+      do j=1,ny_block
+      do i=1,nx_block
+      WORK2(i,j) = mwjfdens0t0 + TQ(i,j) * (mwjfdens0t1 + TQ(i,j) * (mwjfdens0t2 +    &
+           TQ(i,j) * (mwjfdens0t3 + mwjfdens0t4 * TQ(i,j) ))) +                   &
+           SQ(i,j) * (mwjfdens1t0 + TQ(i,j) * (mwjfdens1t1 + TQ(i,j) * TQ(i,j) * mwjfdens1t3)+ &
+           SQR(i,j) * (mwjfdensqt0 + TQ(i,j) * TQ(i,j) * mwjfdensqt2))
+      enddo
+      enddo
 
       DENOMK = c1/WORK2
 
@@ -179,6 +188,7 @@ implicit none
                  c1p5*SQR*(mwjfdensqt0 + TQ*TQ*mwjfdensqt2)
 
          DRHODS = (WORK3 - WORK1*DENOMK*WORK4)*DENOMK * c1000
+
       !endif
 
       end_time = omp_get_wtime()
