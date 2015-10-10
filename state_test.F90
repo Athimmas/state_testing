@@ -81,6 +81,12 @@ implicit none
       tmax = 999.0_r8  ! unlimited on the high end
       smin =   0.0_r8  ! limited   on the low  end
       smax = 0.999_r8  ! unlimited on the high end
+
+
+      call random_number(TQ)
+      call random_number(SQ)
+      call random_number(TEMPK)
+      call random_number(SALTK)
  
       start_time = omp_get_wtime()
      
@@ -92,7 +98,6 @@ implicit none
       p   = c10*pressz(kk)
       SQ  = c1000*SQ
       SQR = sqrt(SQ)
-
       !***
       !*** first calculate numerator of MWJF density [P_1(S,T,p)]
       !***
