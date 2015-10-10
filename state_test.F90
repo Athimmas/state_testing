@@ -148,6 +148,19 @@ implicit none
 
       do j=1,ny_block
       do i=1,nx_block
+
+      TQ(i,j) = min(TEMPK(i,j),tmax(kk))
+      TQ(i,j) = max(TQ(i,j),tmin(kk))
+      SQ(i,j) = min(SALTK(i,j),smax(kk))
+      SQ(i,j) = max(SQ(i,j),smin(kk))
+      SQ(i,j)  = c1000*SQ(i,j)
+      SQR(i,j) = sqrt(SQ(i,j))
+ 
+      WORK1(i,j) = mwjfnums0t0 + TQ(i,j) * (mwjfnums0t1 + TQ(i,j) * (mwjfnums0t2 + &
+              mwjfnums0t3 * TQ(i,j))) + SQ(i,j) * (mwjfnums1t0 +              &
+              mwjfnums1t1 * TQ(i,j) + mwjfnums2t0 * SQ(i,j) )
+
+
       WORK2(i,j) = mwjfdens0t0 + TQ(i,j) * (mwjfdens0t1 + TQ(i,j) * (mwjfdens0t2 +    &
            TQ(i,j) * (mwjfdens0t3 + mwjfdens0t4 * TQ(i,j) ))) +                   &
            SQ(i,j) * (mwjfdens1t0 + TQ(i,j) * (mwjfdens1t1 + TQ(i,j) * TQ(i,j) * mwjfdens1t3)+ &
