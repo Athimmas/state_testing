@@ -152,42 +152,42 @@ implicit none
            TQ(i,j) * (mwjfdens0t3 + mwjfdens0t4 * TQ(i,j) ))) +                   &
            SQ(i,j) * (mwjfdens1t0 + TQ(i,j) * (mwjfdens1t1 + TQ(i,j) * TQ(i,j) * mwjfdens1t3)+ &
            SQR(i,j) * (mwjfdensqt0 + TQ(i,j) * TQ(i,j) * mwjfdensqt2))
-      enddo
-      enddo
 
-      DENOMK = c1/WORK2
+      DENOMK(i,j) = c1/WORK2(i,j)
 
       !if (present(RHOOUT)) then
-         RHOOUT  = WORK1*DENOMK
+         RHOOUT(i,j)  = WORK1(i,j) * DENOMK(i,j)
       !endif
 
       !if (present(RHOFULL)) then
-         RHOFULL = WORK1*DENOMK
+         RHOFULL(i,j) = WORK1(i,j) * DENOMK(i,j)
       !endif
 
       !if (present(DRHODT)) then
-         WORK3 = &! dP_1/dT
-                 mwjfnums0t1 + TQ * (c2*mwjfnums0t2 +    &
-                 c3*mwjfnums0t3 * TQ) + mwjfnums1t1 * SQ
+         WORK3(i,j) = &! dP_1/dT
+                 mwjfnums0t1 + TQ(i,j) * (c2*mwjfnums0t2 +    &
+                 c3*mwjfnums0t3 * TQ(i,j)) + mwjfnums1t1 * SQ(i,j)
 
-         WORK4 = &! dP_2/dT
-                 mwjfdens0t1 + SQ * mwjfdens1t1 +               &
-                 TQ * (c2*(mwjfdens0t2 + SQ*SQR*mwjfdensqt2) +  &
-                 TQ * (c3*(mwjfdens0t3 + SQ * mwjfdens1t3) +    &
-                 TQ *  c4*mwjfdens0t4))
+         WORK4(i,j) = &! dP_2/dT
+                 mwjfdens0t1 + SQ(i,j) * mwjfdens1t1 +               &
+                 TQ(i,j) * (c2*(mwjfdens0t2 + SQ(i,j) * SQR(i,j) * mwjfdensqt2) +  &
+                 TQ(i,j) * (c3*(mwjfdens0t3 + SQ(i,j) * mwjfdens1t3) +    &
+                 TQ(i,j) *  c4*mwjfdens0t4))
 
-         DRHODT = (WORK3 - WORK1*DENOMK*WORK4)*DENOMK
+         DRHODT(i,j) = (WORK3(i,j) - WORK1(i,j) * DENOMK(i,j) * WORK4(i,j))* DENOMK(i,j)
       !endif
 
       !if (present(DRHODS)) then
-         WORK3 = &! dP_1/dS
-                 mwjfnums1t0 + mwjfnums1t1 * TQ + c2*mwjfnums2t0 * SQ
+         WORK3(i,j) = &! dP_1/dS
+                 mwjfnums1t0 + mwjfnums1t1 * TQ(i,j) + c2*mwjfnums2t0 * SQ(i,j)
 
-         WORK4 = mwjfdens1t0 +   &! dP_2/dS
-                 TQ * (mwjfdens1t1 + TQ*TQ*mwjfdens1t3) +   &
-                 c1p5*SQR*(mwjfdensqt0 + TQ*TQ*mwjfdensqt2)
+         WORK4(i,j) = mwjfdens1t0 +   &! dP_2/dS
+                 TQ(i,j) * (mwjfdens1t1 + TQ(i,j) * TQ(i,j) * mwjfdens1t3) +   &
+                 c1p5 * SQR(i,j) *(mwjfdensqt0 + TQ(i,j) * TQ(i,j) * mwjfdensqt2)
 
-         DRHODS = (WORK3 - WORK1*DENOMK*WORK4)*DENOMK * c1000
+         DRHODS(i,j) = ( WORK3(i,j) - WORK1(i,j) * DENOMK(i,j) * WORK4(i,j) ) * DENOMK(i,j) * c1000
+       enddo
+       enddo
 
       !endif
 
