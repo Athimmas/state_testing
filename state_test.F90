@@ -92,14 +92,14 @@ implicit none
  
       start_time = omp_get_wtime()
       
-      !do i=1,ny_block
-      !do j=1,nx_block
-      TQ = min(TEMPK,tmax(kk))
-      TQ = max(TQ,tmin(kk))
-      SQ = min(SALTK,smax(kk))
-      SQ = max(SQ,smin(kk))
-      !enddo
-      !enddo 
+      do i=1,ny_block
+      do j=1,nx_block
+      TQ(j,i) = min(TEMPK(j,i),tmax(kk))
+      TQ(j,i) = max(TQ(j,i),tmin(kk))
+      SQ(j,i) = min(SALTK(j,i),smax(kk))
+      SQ(j,i) = max(SQ(j,i),smin(kk))
+      enddo
+      enddo 
 
       p   = c10*pressz(kk)
       SQ  = c1000*SQ
