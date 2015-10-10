@@ -7,8 +7,8 @@ program state_dummy
 implicit none
 
       integer (int_kind), parameter :: &
-      nx_block = 2700, & 
-      ny_block = 2700, &
+      nx_block = 2744, & 
+      ny_block = 2744, &
       km = 60
 
       integer (int_kind) i,j  
@@ -117,11 +117,19 @@ implicit none
       mwjfdensqt0 = mwjfdp0sqt0
       mwjfdensqt2 = mwjfdp0sqt2
 
+      !dir$ offload begin target(mic:0)
+
+      call omp_set_num_threads(120)
+
       start_time = omp_get_wtime()
 
-      call omp_set_num_threads(8) 
-      !$OMP PARALLEL PRIVATE(I,PRESSZ)DEFAULT(SHARED)FIRSTPRIVATE(P)
-
+      !$OMP PARALLEL PRIVATE(I,PRESSZ)DEFAULT(NONE)FIRSTPRIVATE(tmax,mwjfnums0t0,mwjfnums0t1,mwjfnums0t2,mwjfnums0t3,mwjfnums1t0) &
+      !$OMP FIRSTPRIVATE(mwjfnums1t1,mwjfnums2t0,mwjfdens0t0,mwjfdens0t1,mwjfdens0t2,mwjfdens0t3) &
+      !$OMP FIRSTPRIVATE(mwjfdens0t4,mwjfdens1t0,mwjfdens1t1,mwjfdens1t3,mwjfdensqt0,mwjfdensqt2) &
+      !$OMP FIRSTPRIVATE(tmin,smin,smax,kk) &
+      !$OMP SHARED(TQ,SQ,SQR,WORK1,WORK2,WORK3,WORK4,TEMPK,SALTK,DENOMK,RHOOUT,RHOFULL)&
+      !$OMP SHARED(DRHODT,DRHODS)  
+          
       !$OMP DO 
       do j=1,ny_block
       do i=1,nx_block
@@ -183,9 +191,9 @@ implicit none
 
        !$OMP END PARALLEL
         
-      
-
       end_time = omp_get_wtime()
+
+      !dir$ end offload 
 
 
       print *, end_time - start_time
