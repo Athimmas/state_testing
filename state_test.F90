@@ -92,18 +92,24 @@ implicit none
  
       start_time = omp_get_wtime()
       
-      do i=1,ny_block
-      do j=1,nx_block
-      TQ(j,i) = min(TEMPK(j,i),tmax(kk))
-      TQ(j,i) = max(TQ(j,i),tmin(kk))
-      SQ(j,i) = min(SALTK(j,i),smax(kk))
-      SQ(j,i) = max(SQ(j,i),smin(kk))
+      do j=1,ny_block
+      do i=1,nx_block
+      TQ(i,j) = min(TEMPK(i,j),tmax(kk))
+      TQ(i,j) = max(TQ(i,j),tmin(kk))
+      SQ(i,j) = min(SALTK(i,j),smax(kk))
+      SQ(i,j) = max(SQ(i,j),smin(kk))
       enddo
       enddo 
 
       p   = c10*pressz(kk)
-      SQ  = c1000*SQ
-      SQR = sqrt(SQ)
+
+      do j=1,ny_block
+      do i=1,nx_block
+      SQ(i,j)  = c1000*SQ(i,j)
+      SQR(i,j) = sqrt(SQ(i,j))
+      enddo
+      enddo
+
       !***
       !*** first calculate numerator of MWJF density [P_1(S,T,p)]
       !***
