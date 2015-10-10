@@ -9,7 +9,9 @@ implicit none
       integer (int_kind), parameter :: &
       nx_block = 388, & 
       ny_block = 328, &
-      km = 60 
+      km = 60
+
+      integer (int_kind) i,j  
 
       real (r8) start_time, end_time
 
@@ -89,11 +91,15 @@ implicit none
       call random_number(SALTK)
  
       start_time = omp_get_wtime()
-     
+      
+      !do i=1,ny_block
+      !do j=1,nx_block
       TQ = min(TEMPK,tmax(kk))
       TQ = max(TQ,tmin(kk))
       SQ = min(SALTK,smax(kk))
       SQ = max(SQ,smin(kk))
+      !enddo
+      !enddo 
 
       p   = c10*pressz(kk)
       SQ  = c1000*SQ
@@ -171,6 +177,16 @@ implicit none
 
       end_time = omp_get_wtime()
       print *, end_time - start_time
+      print *, sum(WORK1)
+      print *, sum(WORK2)
+      print *, sum(WORK3)
+      print *, sum(WORK4)
+      print *, sum(DRHODS)
+      print *, sum(DRHODT)
+      print *, sum(RHOOUT)
+      print *, sum(RHOFULL)
+      print *, sum(DENOMK)
+       
 
 end program state_dummy
 
