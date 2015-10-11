@@ -33,7 +33,7 @@ INLINE REPORT: (STATE_DUMMY) [1/1=100.0%] state_test_offload.F90(1,9)
   -> EXTERN: (91,12) for_random_number
   -> EXTERN: (110,36) __powr8i4
   -> EXTERN: (122,12) omp_set_num_threads
-  -> EXTERN: (124,20) omp_get_wtime
+  -> EXTERN: (123,18) omp_get_wtime
   -> EXTERN: (194,18) omp_get_wtime
   -> EXTERN: (199,7) for_write_seq_lis
   -> EXTERN: (201,7) for_write_seq_lis
@@ -49,7 +49,7 @@ INLINE REPORT: (STATE_DUMMY) [1/1=100.0%] state_test_offload.F90(1,9)
 
     Report from: OpenMP optimizations [openmp]
 
-OpenMP Construct at state_test_offload.F90(126,7)
+OpenMP Construct at state_test_offload.F90(125,7)
    remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
 
     Report from: Offload optimizations [offload]
@@ -58,52 +58,25 @@ OFFLOAD:state_dummy(120,1):  Offload to target MIC <expr>
  Evaluate length/align/alloc_if/free_if/alloc/into expressions
  Data sent from host to target
        start_time, scalar size 8 bytes
-       i, scalar size 4 bytes
-       __offload_stack_ptr_state_dummy_$PRESSZ_V$2d.0, pointer to array reference expression with base
-       j, scalar size 4 bytes
-       __offload_stack_ptr_state_dummy_$TMAX_V$30.0, pointer to array reference expression with base
-       mwjfnums0t0, scalar size 8 bytes
-       mwjfnums0t1, scalar size 8 bytes
-       mwjfnums0t2, scalar size 8 bytes
-       mwjfnums0t3, scalar size 8 bytes
-       mwjfnums1t0, scalar size 8 bytes
-       mwjfnums1t1, scalar size 8 bytes
-       mwjfnums2t0, scalar size 8 bytes
-       mwjfdens0t0, scalar size 8 bytes
-       mwjfdens0t1, scalar size 8 bytes
-       mwjfdens0t2, scalar size 8 bytes
-       mwjfdens0t3, scalar size 8 bytes
-       mwjfdens0t4, scalar size 8 bytes
-       mwjfdens1t0, scalar size 8 bytes
-       mwjfdens1t1, scalar size 8 bytes
-       mwjfdens1t3, scalar size 8 bytes
-       mwjfdensqt0, scalar size 8 bytes
-       mwjfdensqt2, scalar size 8 bytes
-       __offload_stack_ptr_state_dummy_$TMIN_V$31.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SMIN_V$2f.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SMAX_V$2e.0, pointer to array reference expression with base
-       kk, scalar size 4 bytes
        __offload_stack_ptr_state_dummy_$TQ_V$39.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$TEMPK_V$3b.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$SQ_V$38.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SQR_V$37.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$SALTK_V$3a.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$WORK1_V$35.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$WORK2_V$34.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$WORK3_V$33.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$WORK4_V$32.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$TEMPK_V$3b.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SALTK_V$3a.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$SQR_V$37.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$DENOMK_V$36.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$RHOOUT_V$3f.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$RHOFULL_V$3e.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$DRHODT_V$3d.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$DRHODS_V$3c.0, pointer to array reference expression with base
-       end_time, scalar size 8 bytes
- Data received by host from target
-       start_time, scalar size 8 bytes
-       i, scalar size 4 bytes
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       j, scalar size 4 bytes
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$DRHODT_V$3d.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$TMAX_V$30.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$TMIN_V$31.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$SMAX_V$2e.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$SMIN_V$2f.0, pointer to array reference expression with base
+       kk, scalar size 4 bytes
        mwjfnums0t0, scalar size 8 bytes
        mwjfnums0t1, scalar size 8 bytes
        mwjfnums0t2, scalar size 8 bytes
@@ -121,24 +94,49 @@ OFFLOAD:state_dummy(120,1):  Offload to target MIC <expr>
        mwjfdens1t3, scalar size 8 bytes
        mwjfdensqt0, scalar size 8 bytes
        mwjfdensqt2, scalar size 8 bytes
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
+       j, scalar size 4 bytes
+       i, scalar size 4 bytes
+       end_time, scalar size 8 bytes
+ Data received by host from target
+       start_time, scalar size 8 bytes
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
        kk, scalar size 4 bytes
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
+       mwjfnums0t0, scalar size 8 bytes
+       mwjfnums0t1, scalar size 8 bytes
+       mwjfnums0t2, scalar size 8 bytes
+       mwjfnums0t3, scalar size 8 bytes
+       mwjfnums1t0, scalar size 8 bytes
+       mwjfnums1t1, scalar size 8 bytes
+       mwjfnums2t0, scalar size 8 bytes
+       mwjfdens0t0, scalar size 8 bytes
+       mwjfdens0t1, scalar size 8 bytes
+       mwjfdens0t2, scalar size 8 bytes
+       mwjfdens0t3, scalar size 8 bytes
+       mwjfdens0t4, scalar size 8 bytes
+       mwjfdens1t0, scalar size 8 bytes
+       mwjfdens1t1, scalar size 8 bytes
+       mwjfdens1t3, scalar size 8 bytes
+       mwjfdensqt0, scalar size 8 bytes
+       mwjfdensqt2, scalar size 8 bytes
+       j, scalar size 4 bytes
+       i, scalar size 4 bytes
        end_time, scalar size 8 bytes
 
 
@@ -541,10 +539,6 @@ state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline w
 state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
 state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
 state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
 ===========================================================================
 
     Report from: Interprocedural optimizations [ipo]
@@ -581,7 +575,7 @@ INLINE REPORT: (STATE_DUMMY) [1/1=100.0%] state_test_offload.F90(1,9)
   -> EXTERN: (91,12) for_random_number
   -> EXTERN: (110,36) __powr8i4
   -> EXTERN: (122,12) omp_set_num_threads
-  -> EXTERN: (124,20) omp_get_wtime
+  -> EXTERN: (123,18) omp_get_wtime
   -> EXTERN: (194,18) omp_get_wtime
   -> EXTERN: (199,7) for_write_seq_lis
   -> EXTERN: (201,7) for_write_seq_lis
@@ -597,7 +591,7 @@ INLINE REPORT: (STATE_DUMMY) [1/1=100.0%] state_test_offload.F90(1,9)
 
     Report from: OpenMP optimizations [openmp]
 
-OpenMP Construct at state_test_offload.F90(126,7)
+OpenMP Construct at state_test_offload.F90(125,7)
    remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
 
     Report from: Offload optimizations [offload]
@@ -605,52 +599,25 @@ OpenMP Construct at state_test_offload.F90(126,7)
 OFFLOAD:MAIN__(120,1):  Outlined offload region
  Data received by target from host
        start_time, scalar size 8 bytes
-       i, scalar size 4 bytes
-       __offload_stack_ptr_state_dummy_$PRESSZ_V$2d.0, pointer to array reference expression with base
-       j, scalar size 4 bytes
-       __offload_stack_ptr_state_dummy_$TMAX_V$30.0, pointer to array reference expression with base
-       mwjfnums0t0, scalar size 8 bytes
-       mwjfnums0t1, scalar size 8 bytes
-       mwjfnums0t2, scalar size 8 bytes
-       mwjfnums0t3, scalar size 8 bytes
-       mwjfnums1t0, scalar size 8 bytes
-       mwjfnums1t1, scalar size 8 bytes
-       mwjfnums2t0, scalar size 8 bytes
-       mwjfdens0t0, scalar size 8 bytes
-       mwjfdens0t1, scalar size 8 bytes
-       mwjfdens0t2, scalar size 8 bytes
-       mwjfdens0t3, scalar size 8 bytes
-       mwjfdens0t4, scalar size 8 bytes
-       mwjfdens1t0, scalar size 8 bytes
-       mwjfdens1t1, scalar size 8 bytes
-       mwjfdens1t3, scalar size 8 bytes
-       mwjfdensqt0, scalar size 8 bytes
-       mwjfdensqt2, scalar size 8 bytes
-       __offload_stack_ptr_state_dummy_$TMIN_V$31.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SMIN_V$2f.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SMAX_V$2e.0, pointer to array reference expression with base
-       kk, scalar size 4 bytes
        __offload_stack_ptr_state_dummy_$TQ_V$39.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$TEMPK_V$3b.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$SQ_V$38.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SQR_V$37.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$SALTK_V$3a.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$WORK1_V$35.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$WORK2_V$34.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$WORK3_V$33.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$WORK4_V$32.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$TEMPK_V$3b.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SALTK_V$3a.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$SQR_V$37.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$DENOMK_V$36.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$RHOOUT_V$3f.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$RHOFULL_V$3e.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$DRHODT_V$3d.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$DRHODS_V$3c.0, pointer to array reference expression with base
-       end_time, scalar size 8 bytes
- Data sent from target to host
-       start_time, scalar size 8 bytes
-       i, scalar size 4 bytes
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       j, scalar size 4 bytes
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$DRHODT_V$3d.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$TMAX_V$30.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$TMIN_V$31.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$SMAX_V$2e.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$SMIN_V$2f.0, pointer to array reference expression with base
+       kk, scalar size 4 bytes
        mwjfnums0t0, scalar size 8 bytes
        mwjfnums0t1, scalar size 8 bytes
        mwjfnums0t2, scalar size 8 bytes
@@ -668,108 +635,133 @@ OFFLOAD:MAIN__(120,1):  Outlined offload region
        mwjfdens1t3, scalar size 8 bytes
        mwjfdensqt0, scalar size 8 bytes
        mwjfdensqt2, scalar size 8 bytes
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
+       j, scalar size 4 bytes
+       i, scalar size 4 bytes
+       end_time, scalar size 8 bytes
+ Data sent from target to host
+       start_time, scalar size 8 bytes
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
+       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
        kk, scalar size 4 bytes
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.66, pointer to array reference expression with base
+       mwjfnums0t0, scalar size 8 bytes
+       mwjfnums0t1, scalar size 8 bytes
+       mwjfnums0t2, scalar size 8 bytes
+       mwjfnums0t3, scalar size 8 bytes
+       mwjfnums1t0, scalar size 8 bytes
+       mwjfnums1t1, scalar size 8 bytes
+       mwjfnums2t0, scalar size 8 bytes
+       mwjfdens0t0, scalar size 8 bytes
+       mwjfdens0t1, scalar size 8 bytes
+       mwjfdens0t2, scalar size 8 bytes
+       mwjfdens0t3, scalar size 8 bytes
+       mwjfdens0t4, scalar size 8 bytes
+       mwjfdens1t0, scalar size 8 bytes
+       mwjfdens1t1, scalar size 8 bytes
+       mwjfdens1t3, scalar size 8 bytes
+       mwjfdensqt0, scalar size 8 bytes
+       mwjfdensqt2, scalar size 8 bytes
+       j, scalar size 4 bytes
+       i, scalar size 4 bytes
        end_time, scalar size 8 bytes
 
 
     Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
 
 
-LOOP BEGIN at state_test_offload.F90(134,7)
+LOOP BEGIN at state_test_offload.F90(135,7)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at state_test_offload.F90(135,7)
+   LOOP BEGIN at state_test_offload.F90(136,7)
       remark #25427: Loop Statements Reordered
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(139,7) ]
-      remark #15388: vectorization support: reference saltk has aligned access   [ state_test_offload.F90(139,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(137,7) ]
-      remark #15388: vectorization support: reference tempk has aligned access   [ state_test_offload.F90(137,7) ]
       remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(140,7) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(140,7) ]
+      remark #15388: vectorization support: reference saltk has aligned access   [ state_test_offload.F90(140,7) ]
       remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(138,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(138,7) ]
+      remark #15388: vectorization support: reference tempk has aligned access   [ state_test_offload.F90(138,7) ]
       remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(141,7) ]
       remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(141,7) ]
-      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(142,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(139,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(139,7) ]
       remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(142,7) ]
-      remark #15388: vectorization support: reference work1 has aligned access   [ state_test_offload.F90(145,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(145,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(145,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(145,7) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(145,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(145,7) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(145,7) ]
-      remark #15388: vectorization support: reference work3 has aligned access   [ state_test_offload.F90(165,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(165,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(165,10) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(165,10) ]
-      remark #15388: vectorization support: reference work2 has aligned access   [ state_test_offload.F90(149,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(149,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(149,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(149,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(149,7) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(149,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(149,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(149,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(149,7) ]
-      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(149,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(149,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(149,7) ]
-      remark #15388: vectorization support: reference work4 has aligned access   [ state_test_offload.F90(169,10) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(169,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(169,10) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(169,10) ]
-      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(169,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(169,10) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(169,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(169,10) ]
-      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(154,7) ]
-      remark #15388: vectorization support: reference work2 has aligned access   [ state_test_offload.F90(154,7) ]
-      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(157,10) ]
-      remark #15388: vectorization support: reference work1 has aligned access   [ state_test_offload.F90(157,10) ]
-      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(157,10) ]
-      remark #15388: vectorization support: reference rhofull has aligned access   [ state_test_offload.F90(161,10) ]
-      remark #15388: vectorization support: reference work1 has aligned access   [ state_test_offload.F90(161,10) ]
-      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(161,10) ]
-      remark #15388: vectorization support: reference drhodt has aligned access   [ state_test_offload.F90(175,10) ]
-      remark #15388: vectorization support: reference work3 has aligned access   [ state_test_offload.F90(175,10) ]
-      remark #15388: vectorization support: reference work1 has aligned access   [ state_test_offload.F90(175,10) ]
-      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(175,10) ]
-      remark #15388: vectorization support: reference work4 has aligned access   [ state_test_offload.F90(175,10) ]
-      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(175,10) ]
-      remark #15388: vectorization support: reference work3 has aligned access   [ state_test_offload.F90(179,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(179,10) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(179,10) ]
-      remark #15388: vectorization support: reference work4 has aligned access   [ state_test_offload.F90(182,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(182,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(182,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(182,10) ]
-      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(182,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(182,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(182,10) ]
-      remark #15388: vectorization support: reference drhods has aligned access   [ state_test_offload.F90(186,10) ]
-      remark #15388: vectorization support: reference work3 has aligned access   [ state_test_offload.F90(186,10) ]
-      remark #15388: vectorization support: reference work1 has aligned access   [ state_test_offload.F90(186,10) ]
-      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(186,10) ]
-      remark #15388: vectorization support: reference work4 has aligned access   [ state_test_offload.F90(186,10) ]
-      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(186,10) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(142,7) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(143,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(143,7) ]
+      remark #15388: vectorization support: reference work1 has aligned access   [ state_test_offload.F90(146,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(146,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(146,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(146,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(146,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(146,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(146,7) ]
+      remark #15388: vectorization support: reference work3 has aligned access   [ state_test_offload.F90(166,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(166,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(166,10) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(166,10) ]
+      remark #15388: vectorization support: reference work2 has aligned access   [ state_test_offload.F90(150,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(150,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(150,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(150,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(150,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(150,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(150,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(150,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(150,7) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(150,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(150,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(150,7) ]
+      remark #15388: vectorization support: reference work4 has aligned access   [ state_test_offload.F90(170,10) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(170,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(170,10) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(170,10) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(170,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(170,10) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(170,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(170,10) ]
+      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(155,7) ]
+      remark #15388: vectorization support: reference work2 has aligned access   [ state_test_offload.F90(155,7) ]
+      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(158,10) ]
+      remark #15388: vectorization support: reference work1 has aligned access   [ state_test_offload.F90(158,10) ]
+      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(158,10) ]
+      remark #15388: vectorization support: reference rhofull has aligned access   [ state_test_offload.F90(162,10) ]
+      remark #15388: vectorization support: reference work1 has aligned access   [ state_test_offload.F90(162,10) ]
+      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(162,10) ]
+      remark #15388: vectorization support: reference drhodt has aligned access   [ state_test_offload.F90(176,10) ]
+      remark #15388: vectorization support: reference work3 has aligned access   [ state_test_offload.F90(176,10) ]
+      remark #15388: vectorization support: reference work1 has aligned access   [ state_test_offload.F90(176,10) ]
+      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(176,10) ]
+      remark #15388: vectorization support: reference work4 has aligned access   [ state_test_offload.F90(176,10) ]
+      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(176,10) ]
+      remark #15388: vectorization support: reference work3 has aligned access   [ state_test_offload.F90(180,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(180,10) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(180,10) ]
+      remark #15388: vectorization support: reference work4 has aligned access   [ state_test_offload.F90(183,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(183,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(183,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(183,10) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(183,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(183,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(183,10) ]
+      remark #15388: vectorization support: reference drhods has aligned access   [ state_test_offload.F90(187,10) ]
+      remark #15388: vectorization support: reference work3 has aligned access   [ state_test_offload.F90(187,10) ]
+      remark #15388: vectorization support: reference work1 has aligned access   [ state_test_offload.F90(187,10) ]
+      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(187,10) ]
+      remark #15388: vectorization support: reference work4 has aligned access   [ state_test_offload.F90(187,10) ]
+      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(187,10) ]
       remark #15300: LOOP WAS VECTORIZED
       remark #15475: --- begin vector loop cost summary ---
       remark #15476: scalar loop cost: 365 
@@ -780,20 +772,20 @@ LOOP BEGIN at state_test_offload.F90(134,7)
       remark #25456: Number of Array Refs Scalar Replaced In Loop: 55
       remark #25018: Total number of lines prefetched=28
       remark #25019: Number of spatial prefetches=28, dist=8
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(139,21) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(137,21) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(138,7) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(141,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(140,21) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(138,21) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(139,7) ]
       remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(142,7) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(145,7) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(149,7) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(154,7) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(157,10) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(161,10) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(175,10) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(179,10) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(182,10) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(186,10) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(143,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(146,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(150,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(155,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(158,10) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(162,10) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(176,10) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(180,10) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(183,10) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(187,10) ]
       remark #25015: Estimate of max trip count of loop=1000
    LOOP END
 LOOP END

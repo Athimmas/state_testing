@@ -119,10 +119,6 @@ implicit none
 
       start_time = omp_get_wtime()
 
-      call omp_set_num_threads(8) 
-      !$OMP PARALLEL PRIVATE(I,PRESSZ)DEFAULT(SHARED)FIRSTPRIVATE(P)
-
-      !$OMP DO 
       do j=1,ny_block
       do i=1,nx_block
 
@@ -179,11 +175,6 @@ implicit none
      !endif  
        enddo
        enddo
-       !$OMP END DO NOWAIT
-
-       !$OMP END PARALLEL
-        
-      
 
       end_time = omp_get_wtime()
 

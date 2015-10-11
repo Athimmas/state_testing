@@ -119,18 +119,19 @@ implicit none
 
       !dir$ offload begin target(mic:0)
 
-      call omp_set_num_threads(120)
+      call omp_set_num_threads(60)
+      start_time=omp_get_wtime()
 
-      start_time = omp_get_wtime()
-
-      !$OMP PARALLEL PRIVATE(I,PRESSZ)DEFAULT(NONE)FIRSTPRIVATE(tmax,mwjfnums0t0,mwjfnums0t1,mwjfnums0t2,mwjfnums0t3,mwjfnums1t0) &
-      !$OMP FIRSTPRIVATE(mwjfnums1t1,mwjfnums2t0,mwjfdens0t0,mwjfdens0t1,mwjfdens0t2,mwjfdens0t3) &
-      !$OMP FIRSTPRIVATE(mwjfdens0t4,mwjfdens1t0,mwjfdens1t1,mwjfdens1t3,mwjfdensqt0,mwjfdensqt2) &
-      !$OMP FIRSTPRIVATE(tmin,smin,smax,kk) &
-      !$OMP SHARED(TQ,SQ,SQR,WORK1,WORK2,WORK3,WORK4,TEMPK,SALTK,DENOMK,RHOOUT,RHOFULL)&
-      !$OMP SHARED(DRHODT,DRHODS)  
-          
-      !$OMP DO 
+      !$omp parallel default(none)shared(TQ,TEMPK,SQ,SALTK,WORK1,WORK2,WORK3,WORK4) &
+      !$omp shared(SQR,DENOMK,RHOOUT,RHOFULL,DRHODS,DRHODT)&
+      !$omp firstprivate(tmax,tmin,smax,smin,kk) &
+      !$omp firstprivate(mwjfnums0t0,mwjfnums0t1,mwjfnums0t2,mwjfnums0t3) &
+      !$omp firstprivate(mwjfnums1t0,mwjfnums1t1,mwjfnums2t0) &
+      !$omp firstprivate(mwjfdens0t0,mwjfdens0t1,mwjfdens0t2,mwjfdens0t3) &
+      !$omp firstprivate(mwjfdens0t4,mwjfdens1t0,mwjfdens1t1,mwjfdens1t3) &
+      !$omp firstprivate(mwjfdensqt0,mwjfdensqt2)  
+      
+      !$omp do  
       do j=1,ny_block
       do i=1,nx_block
 
@@ -187,15 +188,14 @@ implicit none
      !endif  
        enddo
        enddo
-       !$OMP END DO NOWAIT
+       !!$omp end do
 
-       !$OMP END PARALLEL
-        
+       !$omp end parallel         
       end_time = omp_get_wtime()
 
       !dir$ end offload 
-
-
+        
+ 
       print *, end_time - start_time
 
       print *, sum(WORK1)
