@@ -7,8 +7,8 @@ program state_dummy
 implicit none
 
       integer (int_kind), parameter :: &
-      nx_block = 2700, & 
-      ny_block = 2700, &
+      nx_block = 2744, & 
+      ny_block = 2744, &
       km = 60
 
       integer (int_kind) i,j  
@@ -117,8 +117,20 @@ implicit none
       mwjfdensqt0 = mwjfdp0sqt0
       mwjfdensqt2 = mwjfdp0sqt2
 
-      start_time = omp_get_wtime()
 
+      call omp_set_num_threads(16)
+      start_time=omp_get_wtime()
+
+      !$omp parallel default(none)shared(TQ,TEMPK,SQ,SALTK,WORK1,WORK2,WORK3,WORK4) &
+      !$omp shared(SQR,DENOMK,RHOOUT,RHOFULL,DRHODS,DRHODT)&
+      !$omp firstprivate(tmax,tmin,smax,smin,kk) &
+      !$omp firstprivate(mwjfnums0t0,mwjfnums0t1,mwjfnums0t2,mwjfnums0t3) &
+      !$omp firstprivate(mwjfnums1t0,mwjfnums1t1,mwjfnums2t0) &
+      !$omp firstprivate(mwjfdens0t0,mwjfdens0t1,mwjfdens0t2,mwjfdens0t3) &
+      !$omp firstprivate(mwjfdens0t4,mwjfdens1t0,mwjfdens1t1,mwjfdens1t3) &
+      !$omp firstprivate(mwjfdensqt0,mwjfdensqt2)  
+      
+      !$omp do  
       do j=1,ny_block
       do i=1,nx_block
 
@@ -175,9 +187,10 @@ implicit none
      !endif  
        enddo
        enddo
+      !$omp end do
 
+       !$omp end parallel         
       end_time = omp_get_wtime()
-
 
       print *, end_time - start_time
 

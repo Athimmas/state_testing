@@ -119,7 +119,81 @@ implicit none
 
       !dir$ offload begin target(mic:0)
 
-      call omp_set_num_threads(60)
+      !$omp parallel default(none)shared(TQ,TEMPK,SQ,SALTK,WORK1,WORK2,WORK3,WORK4) &
+      !$omp shared(SQR,DENOMK,RHOOUT,RHOFULL,DRHODS,DRHODT)&
+      !$omp firstprivate(tmax,tmin,smax,smin,kk) &
+      !$omp firstprivate(mwjfnums0t0,mwjfnums0t1,mwjfnums0t2,mwjfnums0t3) &
+      !$omp firstprivate(mwjfnums1t0,mwjfnums1t1,mwjfnums2t0) &
+      !$omp firstprivate(mwjfdens0t0,mwjfdens0t1,mwjfdens0t2,mwjfdens0t3) &
+      !$omp firstprivate(mwjfdens0t4,mwjfdens1t0,mwjfdens1t1,mwjfdens1t3) &
+      !$omp firstprivate(mwjfdensqt0,mwjfdensqt2) 
+
+      call omp_set_num_threads(240)  
+      
+      !$omp do  
+      do j=1,ny_block
+      do i=1,nx_block
+
+      TQ(i,j) = min(TEMPK(i,j),tmax(kk))
+      TQ(i,j) = max(TQ(i,j),tmin(kk))
+      SQ(i,j) = min(SALTK(i,j),smax(kk))
+      SQ(i,j) = max(SQ(i,j),smin(kk))
+      SQ(i,j)  = c1000*SQ(i,j)
+      SQR(i,j) = sqrt(SQ(i,j))
+
+
+      WORK1(i,j) = mwjfnums0t0 + TQ(i,j) * (mwjfnums0t1 + TQ(i,j) * (mwjfnums0t2 + &
+              mwjfnums0t3 * TQ(i,j))) + SQ(i,j) * (mwjfnums1t0 +              &
+              mwjfnums1t1 * TQ(i,j) + mwjfnums2t0 * SQ(i,j) )
+      
+      WORK2(i,j) = mwjfdens0t0 + TQ(i,j) * (mwjfdens0t1 + TQ(i,j) * (mwjfdens0t2 +    &
+           TQ(i,j) * (mwjfdens0t3 + mwjfdens0t4 * TQ(i,j) ))) +                   &
+           SQ(i,j) * (mwjfdens1t0 + TQ(i,j) * (mwjfdens1t1 + TQ(i,j) * TQ(i,j) * mwjfdens1t3)+ &
+           SQR(i,j) * (mwjfdensqt0 + TQ(i,j) * TQ(i,j) * mwjfdensqt2))
+
+      DENOMK(i,j) = c1/WORK2(i,j)
+
+      !if (present(RHOOUT)) then
+         RHOOUT(i,j)  = WORK1(i,j) * DENOMK(i,j)
+      !endif
+
+      !if (present(RHOFULL)) then
+         RHOFULL(i,j) = WORK1(i,j) * DENOMK(i,j)
+      !endif
+
+      !if (present(DRHODT)) then
+         WORK3(i,j) = &! dP_1/dT
+                 mwjfnums0t1 + TQ(i,j) * (c2*mwjfnums0t2 +    &
+                 c3*mwjfnums0t3 * TQ(i,j)) + mwjfnums1t1 * SQ(i,j)
+
+         WORK4(i,j) = &! dP_2/dT
+                 mwjfdens0t1 + SQ(i,j) * mwjfdens1t1 +               &
+                 TQ(i,j) * (c2*(mwjfdens0t2 + SQ(i,j) * SQR(i,j) * mwjfdensqt2) +  &
+                 TQ(i,j) * (c3*(mwjfdens0t3 + SQ(i,j) * mwjfdens1t3) +    &
+                 TQ(i,j) *  c4*mwjfdens0t4))
+
+         DRHODT(i,j) = (WORK3(i,j) - WORK1(i,j) * DENOMK(i,j) * WORK4(i,j))* DENOMK(i,j)
+      !endif
+
+      !if (present(DRHODS)) then
+         WORK3(i,j) = &! dP_1/dS
+                 mwjfnums1t0 + mwjfnums1t1 * TQ(i,j) + c2*mwjfnums2t0 * SQ(i,j)
+
+         WORK4(i,j) = mwjfdens1t0 +   &! dP_2/dS
+                 TQ(i,j) * (mwjfdens1t1 + TQ(i,j) * TQ(i,j) * mwjfdens1t3) +   &
+                 c1p5 * SQR(i,j) *(mwjfdensqt0 + TQ(i,j) * TQ(i,j) * mwjfdensqt2)
+
+         DRHODS(i,j) = ( WORK3(i,j) - WORK1(i,j) * DENOMK(i,j) * WORK4(i,j) ) * DENOMK(i,j) * c1000
+     !endif  
+       enddo
+       enddo
+      !$omp end do
+
+       !$omp end parallel          
+
+      call omp_set_num_threads(240)
+
+
       start_time=omp_get_wtime()
 
       !$omp parallel default(none)shared(TQ,TEMPK,SQ,SALTK,WORK1,WORK2,WORK3,WORK4) &
