@@ -27,18 +27,15 @@ Begin optimization report for: STATE_DUMMY
 
 INLINE REPORT: (STATE_DUMMY) [1/1=100.0%] state_test_offload.F90(1,9)
   -> EXTERN: (1,9) for_set_reentrancy
-  -> EXTERN: (88,12) for_random_number
-  -> EXTERN: (89,12) for_random_number
   -> EXTERN: (90,12) for_random_number
   -> EXTERN: (91,12) for_random_number
-  -> EXTERN: (110,36) __powr8i4
-  -> EXTERN: (131,12) omp_set_num_threads
-  -> EXTERN: (159,12) omp_set_num_threads
-  -> EXTERN: (162,18) omp_get_wtime
-  -> EXTERN: (225,18) omp_get_wtime
-  -> EXTERN: (230,7) for_write_seq_lis
+  -> EXTERN: (92,12) for_random_number
+  -> EXTERN: (93,12) for_random_number
+  -> EXTERN: (112,36) __powr8i4
+  -> EXTERN: (134,12) omp_set_num_threads
+  -> EXTERN: (163,18) omp_get_wtime
+  -> EXTERN: (227,18) omp_get_wtime
   -> EXTERN: (232,7) for_write_seq_lis
-  -> EXTERN: (233,7) for_write_seq_lis
   -> EXTERN: (234,7) for_write_seq_lis
   -> EXTERN: (235,7) for_write_seq_lis
   -> EXTERN: (236,7) for_write_seq_lis
@@ -46,34 +43,36 @@ INLINE REPORT: (STATE_DUMMY) [1/1=100.0%] state_test_offload.F90(1,9)
   -> EXTERN: (238,7) for_write_seq_lis
   -> EXTERN: (239,7) for_write_seq_lis
   -> EXTERN: (240,7) for_write_seq_lis
+  -> EXTERN: (241,7) for_write_seq_lis
+  -> EXTERN: (242,7) for_write_seq_lis
 
 
     Report from: OpenMP optimizations [openmp]
 
-OpenMP Construct at state_test_offload.F90(122,7)
+OpenMP Construct at state_test_offload.F90(124,7)
    remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
-OpenMP Construct at state_test_offload.F90(164,7)
+OpenMP Construct at state_test_offload.F90(165,7)
    remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
 
     Report from: Offload optimizations [offload]
 
-OFFLOAD:state_dummy(120,1):  Offload to target MIC <expr>
+OFFLOAD:state_dummy(122,1):  Offload to target MIC <expr>
  Evaluate length/align/alloc_if/free_if/alloc/into expressions
  Data sent from host to target
-       __offload_stack_ptr_state_dummy_$TQ_V$39.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$TEMPK_V$3b.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SQ_V$38.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SALTK_V$3a.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$WORK1_V$35.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$WORK2_V$34.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$WORK3_V$33.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$WORK4_V$32.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SQR_V$37.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$DENOMK_V$36.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$RHOOUT_V$3f.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$RHOFULL_V$3e.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$DRHODS_V$3c.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$DRHODT_V$3d.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$TQ_V$3e.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$TEMPK_V$40.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$SQ_V$3d.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$SALTK_V$3f.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$WORK1_V$3a.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$WORK2_V$39.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$WORK3_V$38.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$WORK4_V$37.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$SQR_V$3c.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$DENOMK_V$3b.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$RHOOUT_V$44.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$RHOFULL_V$43.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$DRHODS_V$41.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$DRHODT_V$42.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$TMAX_V$30.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$TMIN_V$31.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$SMAX_V$2e.0, pointer to array reference expression with base
@@ -96,9 +95,14 @@ OFFLOAD:state_dummy(120,1):  Offload to target MIC <expr>
        mwjfdens1t3, scalar size 8 bytes
        mwjfdensqt0, scalar size 8 bytes
        mwjfdensqt2, scalar size 8 bytes
+       twork1, scalar size 8 bytes
+       twork2, scalar size 8 bytes
+       twork3, scalar size 8 bytes
+       twork4, scalar size 8 bytes
        j, scalar size 4 bytes
        i, scalar size 4 bytes
        start_time, scalar size 8 bytes
+       tdenomk, scalar size 8 bytes
        end_time, scalar size 8 bytes
  Data received by host from target
        __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
@@ -137,16 +141,21 @@ OFFLOAD:state_dummy(120,1):  Offload to target MIC <expr>
        mwjfdens1t3, scalar size 8 bytes
        mwjfdensqt0, scalar size 8 bytes
        mwjfdensqt2, scalar size 8 bytes
+       twork1, scalar size 8 bytes
+       twork2, scalar size 8 bytes
+       twork3, scalar size 8 bytes
+       twork4, scalar size 8 bytes
        j, scalar size 4 bytes
        i, scalar size 4 bytes
        start_time, scalar size 8 bytes
+       tdenomk, scalar size 8 bytes
        end_time, scalar size 8 bytes
 
 
     Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
 
 
-LOOP BEGIN at state_test_offload.F90(82,7)
+LOOP BEGIN at state_test_offload.F90(84,7)
    remark #15388: vectorization support: reference tmin has aligned access
    remark #15399: vectorization support: unroll factor set to 2
    remark #15300: LOOP WAS VECTORIZED
@@ -161,7 +170,7 @@ LOOP BEGIN at state_test_offload.F90(82,7)
    remark #25015: Estimate of max trip count of loop=15
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(83,7)
+LOOP BEGIN at state_test_offload.F90(85,7)
    remark #15388: vectorization support: reference tmax has aligned access
    remark #15399: vectorization support: unroll factor set to 2
    remark #15300: LOOP WAS VECTORIZED
@@ -176,12 +185,12 @@ LOOP BEGIN at state_test_offload.F90(83,7)
    remark #25015: Estimate of max trip count of loop=15
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(84,7)
+LOOP BEGIN at state_test_offload.F90(86,7)
    remark #25408: memset generated
    remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(85,7)
+LOOP BEGIN at state_test_offload.F90(87,7)
    remark #15388: vectorization support: reference smax has aligned access
    remark #15399: vectorization support: unroll factor set to 2
    remark #15300: LOOP WAS VECTORIZED
@@ -196,10 +205,10 @@ LOOP BEGIN at state_test_offload.F90(85,7)
    remark #25015: Estimate of max trip count of loop=15
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(88,12)
+LOOP BEGIN at state_test_offload.F90(90,12)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at state_test_offload.F90(88,12)
+   LOOP BEGIN at state_test_offload.F90(90,12)
       remark #15388: vectorization support: reference TQ.0.1_ptr.var has aligned access
       remark #15300: LOOP WAS VECTORIZED
       remark #15449: unmasked aligned unit stride stores: 1 
@@ -212,14 +221,14 @@ LOOP BEGIN at state_test_offload.F90(88,12)
       remark #15481: heavy-overhead vector operations: 1 
       remark #15482: vectorized math library calls: 1 
       remark #15488: --- end vector loop cost summary ---
-      remark #25015: Estimate of max trip count of loop=1440
+      remark #25015: Estimate of max trip count of loop=1500
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(89,12)
+LOOP BEGIN at state_test_offload.F90(91,12)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at state_test_offload.F90(89,12)
+   LOOP BEGIN at state_test_offload.F90(91,12)
       remark #15388: vectorization support: reference SQ.0.1_ptr.var has aligned access
       remark #15300: LOOP WAS VECTORIZED
       remark #15449: unmasked aligned unit stride stores: 1 
@@ -232,14 +241,14 @@ LOOP BEGIN at state_test_offload.F90(89,12)
       remark #15481: heavy-overhead vector operations: 1 
       remark #15482: vectorized math library calls: 1 
       remark #15488: --- end vector loop cost summary ---
-      remark #25015: Estimate of max trip count of loop=1440
+      remark #25015: Estimate of max trip count of loop=1500
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(90,12)
+LOOP BEGIN at state_test_offload.F90(92,12)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at state_test_offload.F90(90,12)
+   LOOP BEGIN at state_test_offload.F90(92,12)
       remark #15388: vectorization support: reference TEMPK.0.1_ptr.var has aligned access
       remark #15300: LOOP WAS VECTORIZED
       remark #15449: unmasked aligned unit stride stores: 1 
@@ -252,14 +261,14 @@ LOOP BEGIN at state_test_offload.F90(90,12)
       remark #15481: heavy-overhead vector operations: 1 
       remark #15482: vectorized math library calls: 1 
       remark #15488: --- end vector loop cost summary ---
-      remark #25015: Estimate of max trip count of loop=1440
+      remark #25015: Estimate of max trip count of loop=1500
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(91,12)
+LOOP BEGIN at state_test_offload.F90(93,12)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at state_test_offload.F90(91,12)
+   LOOP BEGIN at state_test_offload.F90(93,12)
       remark #15388: vectorization support: reference SALTK.0.1_ptr.var has aligned access
       remark #15300: LOOP WAS VECTORIZED
       remark #15449: unmasked aligned unit stride stores: 1 
@@ -272,12 +281,12 @@ LOOP BEGIN at state_test_offload.F90(91,12)
       remark #15481: heavy-overhead vector operations: 1 
       remark #15482: vectorized math library calls: 1 
       remark #15488: --- end vector loop cost summary ---
-      remark #25015: Estimate of max trip count of loop=1440
+      remark #25015: Estimate of max trip count of loop=1500
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(232,16)
-   remark #25420: Collapsed with loop at line 232 
+LOOP BEGIN at state_test_offload.F90(234,16)
+   remark #25420: Collapsed with loop at line 234 
    remark #15388: vectorization support: reference WORK1.0.1_ptr.var has aligned access
    remark #15399: vectorization support: unroll factor set to 8
    remark #15300: LOOP WAS VECTORIZED
@@ -289,16 +298,16 @@ LOOP BEGIN at state_test_offload.F90(232,16)
    remark #15479: lightweight vector operations: 4 
    remark #15480: medium-overhead vector operations: 1 
    remark #15488: --- end vector loop cost summary ---
-   remark #25015: Estimate of max trip count of loop=471420
+   remark #25015: Estimate of max trip count of loop=562500
 
-   LOOP BEGIN at state_test_offload.F90(232,16)
+   LOOP BEGIN at state_test_offload.F90(234,16)
       remark #25421: Loop eliminated in Collapsing 
 
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(233,16)
-   remark #25420: Collapsed with loop at line 233 
+LOOP BEGIN at state_test_offload.F90(235,16)
+   remark #25420: Collapsed with loop at line 235 
    remark #15388: vectorization support: reference WORK2.0.1_ptr.var has aligned access
    remark #15399: vectorization support: unroll factor set to 8
    remark #15300: LOOP WAS VECTORIZED
@@ -310,16 +319,16 @@ LOOP BEGIN at state_test_offload.F90(233,16)
    remark #15479: lightweight vector operations: 4 
    remark #15480: medium-overhead vector operations: 1 
    remark #15488: --- end vector loop cost summary ---
-   remark #25015: Estimate of max trip count of loop=471420
+   remark #25015: Estimate of max trip count of loop=562500
 
-   LOOP BEGIN at state_test_offload.F90(233,16)
+   LOOP BEGIN at state_test_offload.F90(235,16)
       remark #25421: Loop eliminated in Collapsing 
 
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(234,16)
-   remark #25420: Collapsed with loop at line 234 
+LOOP BEGIN at state_test_offload.F90(236,16)
+   remark #25420: Collapsed with loop at line 236 
    remark #15388: vectorization support: reference WORK3.0.1_ptr.var has aligned access
    remark #15399: vectorization support: unroll factor set to 8
    remark #15300: LOOP WAS VECTORIZED
@@ -331,16 +340,16 @@ LOOP BEGIN at state_test_offload.F90(234,16)
    remark #15479: lightweight vector operations: 4 
    remark #15480: medium-overhead vector operations: 1 
    remark #15488: --- end vector loop cost summary ---
-   remark #25015: Estimate of max trip count of loop=471420
+   remark #25015: Estimate of max trip count of loop=562500
 
-   LOOP BEGIN at state_test_offload.F90(234,16)
+   LOOP BEGIN at state_test_offload.F90(236,16)
       remark #25421: Loop eliminated in Collapsing 
 
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(235,16)
-   remark #25420: Collapsed with loop at line 235 
+LOOP BEGIN at state_test_offload.F90(237,16)
+   remark #25420: Collapsed with loop at line 237 
    remark #15388: vectorization support: reference WORK4.0.1_ptr.var has aligned access
    remark #15399: vectorization support: unroll factor set to 8
    remark #15300: LOOP WAS VECTORIZED
@@ -352,16 +361,16 @@ LOOP BEGIN at state_test_offload.F90(235,16)
    remark #15479: lightweight vector operations: 4 
    remark #15480: medium-overhead vector operations: 1 
    remark #15488: --- end vector loop cost summary ---
-   remark #25015: Estimate of max trip count of loop=471420
+   remark #25015: Estimate of max trip count of loop=562500
 
-   LOOP BEGIN at state_test_offload.F90(235,16)
+   LOOP BEGIN at state_test_offload.F90(237,16)
       remark #25421: Loop eliminated in Collapsing 
 
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(236,16)
-   remark #25420: Collapsed with loop at line 236 
+LOOP BEGIN at state_test_offload.F90(238,16)
+   remark #25420: Collapsed with loop at line 238 
    remark #15388: vectorization support: reference DRHODS.0.1_ptr.var has aligned access
    remark #15399: vectorization support: unroll factor set to 8
    remark #15300: LOOP WAS VECTORIZED
@@ -373,16 +382,16 @@ LOOP BEGIN at state_test_offload.F90(236,16)
    remark #15479: lightweight vector operations: 4 
    remark #15480: medium-overhead vector operations: 1 
    remark #15488: --- end vector loop cost summary ---
-   remark #25015: Estimate of max trip count of loop=471420
+   remark #25015: Estimate of max trip count of loop=562500
 
-   LOOP BEGIN at state_test_offload.F90(236,16)
+   LOOP BEGIN at state_test_offload.F90(238,16)
       remark #25421: Loop eliminated in Collapsing 
 
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(237,16)
-   remark #25420: Collapsed with loop at line 237 
+LOOP BEGIN at state_test_offload.F90(239,16)
+   remark #25420: Collapsed with loop at line 239 
    remark #15388: vectorization support: reference DRHODT.0.1_ptr.var has aligned access
    remark #15399: vectorization support: unroll factor set to 8
    remark #15300: LOOP WAS VECTORIZED
@@ -394,16 +403,16 @@ LOOP BEGIN at state_test_offload.F90(237,16)
    remark #15479: lightweight vector operations: 4 
    remark #15480: medium-overhead vector operations: 1 
    remark #15488: --- end vector loop cost summary ---
-   remark #25015: Estimate of max trip count of loop=471420
+   remark #25015: Estimate of max trip count of loop=562500
 
-   LOOP BEGIN at state_test_offload.F90(237,16)
+   LOOP BEGIN at state_test_offload.F90(239,16)
       remark #25421: Loop eliminated in Collapsing 
 
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(238,16)
-   remark #25420: Collapsed with loop at line 238 
+LOOP BEGIN at state_test_offload.F90(240,16)
+   remark #25420: Collapsed with loop at line 240 
    remark #15388: vectorization support: reference RHOOUT.0.1_ptr.var has aligned access
    remark #15399: vectorization support: unroll factor set to 8
    remark #15300: LOOP WAS VECTORIZED
@@ -415,16 +424,16 @@ LOOP BEGIN at state_test_offload.F90(238,16)
    remark #15479: lightweight vector operations: 4 
    remark #15480: medium-overhead vector operations: 1 
    remark #15488: --- end vector loop cost summary ---
-   remark #25015: Estimate of max trip count of loop=471420
+   remark #25015: Estimate of max trip count of loop=562500
 
-   LOOP BEGIN at state_test_offload.F90(238,16)
+   LOOP BEGIN at state_test_offload.F90(240,16)
       remark #25421: Loop eliminated in Collapsing 
 
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(239,16)
-   remark #25420: Collapsed with loop at line 239 
+LOOP BEGIN at state_test_offload.F90(241,16)
+   remark #25420: Collapsed with loop at line 241 
    remark #15388: vectorization support: reference RHOFULL.0.1_ptr.var has aligned access
    remark #15399: vectorization support: unroll factor set to 8
    remark #15300: LOOP WAS VECTORIZED
@@ -436,16 +445,16 @@ LOOP BEGIN at state_test_offload.F90(239,16)
    remark #15479: lightweight vector operations: 4 
    remark #15480: medium-overhead vector operations: 1 
    remark #15488: --- end vector loop cost summary ---
-   remark #25015: Estimate of max trip count of loop=471420
+   remark #25015: Estimate of max trip count of loop=562500
 
-   LOOP BEGIN at state_test_offload.F90(239,16)
+   LOOP BEGIN at state_test_offload.F90(241,16)
       remark #25421: Loop eliminated in Collapsing 
 
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(240,16)
-   remark #25420: Collapsed with loop at line 240 
+LOOP BEGIN at state_test_offload.F90(242,16)
+   remark #25420: Collapsed with loop at line 242 
    remark #15388: vectorization support: reference DENOMK.0.1_ptr.var has aligned access
    remark #15399: vectorization support: unroll factor set to 8
    remark #15300: LOOP WAS VECTORIZED
@@ -457,9 +466,9 @@ LOOP BEGIN at state_test_offload.F90(240,16)
    remark #15479: lightweight vector operations: 4 
    remark #15480: medium-overhead vector operations: 1 
    remark #15488: --- end vector loop cost summary ---
-   remark #25015: Estimate of max trip count of loop=471420
+   remark #25015: Estimate of max trip count of loop=562500
 
-   LOOP BEGIN at state_test_offload.F90(240,16)
+   LOOP BEGIN at state_test_offload.F90(242,16)
       remark #25421: Loop eliminated in Collapsing 
 
    LOOP END
@@ -467,81 +476,81 @@ LOOP END
 
     Report from: Code generation optimizations [cg]
 
-state_test_offload.F90(84,7):remark #34000: call to memset implemented inline with stores with proven (alignment, offset): (64, 0)
-state_test_offload.F90(120,1):remark #34026: call to memcpy implemented as a call to optimized library version
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(86,7):remark #34000: call to memset implemented inline with stores with proven (alignment, offset): (64, 0)
+state_test_offload.F90(122,1):remark #34026: call to memcpy implemented as a call to optimized library version
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
 ===========================================================================
 
     Report from: Interprocedural optimizations [ipo]
@@ -572,18 +581,15 @@ In the inlining report below:
 
 INLINE REPORT: (STATE_DUMMY) [1/1=100.0%] state_test_offload.F90(1,9)
   -> EXTERN: (1,9) for_set_reentrancy
-  -> EXTERN: (88,12) for_random_number
-  -> EXTERN: (89,12) for_random_number
   -> EXTERN: (90,12) for_random_number
   -> EXTERN: (91,12) for_random_number
-  -> EXTERN: (110,36) __powr8i4
-  -> EXTERN: (131,12) omp_set_num_threads
-  -> EXTERN: (159,12) omp_set_num_threads
-  -> EXTERN: (162,18) omp_get_wtime
-  -> EXTERN: (225,18) omp_get_wtime
-  -> EXTERN: (230,7) for_write_seq_lis
+  -> EXTERN: (92,12) for_random_number
+  -> EXTERN: (93,12) for_random_number
+  -> EXTERN: (112,36) __powr8i4
+  -> EXTERN: (134,12) omp_set_num_threads
+  -> EXTERN: (163,18) omp_get_wtime
+  -> EXTERN: (227,18) omp_get_wtime
   -> EXTERN: (232,7) for_write_seq_lis
-  -> EXTERN: (233,7) for_write_seq_lis
   -> EXTERN: (234,7) for_write_seq_lis
   -> EXTERN: (235,7) for_write_seq_lis
   -> EXTERN: (236,7) for_write_seq_lis
@@ -591,33 +597,35 @@ INLINE REPORT: (STATE_DUMMY) [1/1=100.0%] state_test_offload.F90(1,9)
   -> EXTERN: (238,7) for_write_seq_lis
   -> EXTERN: (239,7) for_write_seq_lis
   -> EXTERN: (240,7) for_write_seq_lis
+  -> EXTERN: (241,7) for_write_seq_lis
+  -> EXTERN: (242,7) for_write_seq_lis
 
 
     Report from: OpenMP optimizations [openmp]
 
-OpenMP Construct at state_test_offload.F90(122,7)
+OpenMP Construct at state_test_offload.F90(124,7)
    remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
-OpenMP Construct at state_test_offload.F90(164,7)
+OpenMP Construct at state_test_offload.F90(165,7)
    remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
 
     Report from: Offload optimizations [offload]
 
-OFFLOAD:MAIN__(120,1):  Outlined offload region
+OFFLOAD:MAIN__(122,1):  Outlined offload region
  Data received by target from host
-       __offload_stack_ptr_state_dummy_$TQ_V$39.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$TEMPK_V$3b.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SQ_V$38.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SALTK_V$3a.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$WORK1_V$35.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$WORK2_V$34.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$WORK3_V$33.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$WORK4_V$32.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SQR_V$37.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$DENOMK_V$36.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$RHOOUT_V$3f.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$RHOFULL_V$3e.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$DRHODS_V$3c.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$DRHODT_V$3d.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$TQ_V$3e.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$TEMPK_V$40.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$SQ_V$3d.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$SALTK_V$3f.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$WORK1_V$3a.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$WORK2_V$39.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$WORK3_V$38.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$WORK4_V$37.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$SQR_V$3c.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$DENOMK_V$3b.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$RHOOUT_V$44.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$RHOFULL_V$43.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$DRHODS_V$41.0, pointer to array reference expression with base
+       __offload_stack_ptr_state_dummy_$DRHODT_V$42.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$TMAX_V$30.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$TMIN_V$31.0, pointer to array reference expression with base
        __offload_stack_ptr_state_dummy_$SMAX_V$2e.0, pointer to array reference expression with base
@@ -640,9 +648,14 @@ OFFLOAD:MAIN__(120,1):  Outlined offload region
        mwjfdens1t3, scalar size 8 bytes
        mwjfdensqt0, scalar size 8 bytes
        mwjfdensqt2, scalar size 8 bytes
+       twork1, scalar size 8 bytes
+       twork2, scalar size 8 bytes
+       twork3, scalar size 8 bytes
+       twork4, scalar size 8 bytes
        j, scalar size 4 bytes
        i, scalar size 4 bytes
        start_time, scalar size 8 bytes
+       tdenomk, scalar size 8 bytes
        end_time, scalar size 8 bytes
  Data sent from target to host
        __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
@@ -681,161 +694,127 @@ OFFLOAD:MAIN__(120,1):  Outlined offload region
        mwjfdens1t3, scalar size 8 bytes
        mwjfdensqt0, scalar size 8 bytes
        mwjfdensqt2, scalar size 8 bytes
+       twork1, scalar size 8 bytes
+       twork2, scalar size 8 bytes
+       twork3, scalar size 8 bytes
+       twork4, scalar size 8 bytes
        j, scalar size 4 bytes
        i, scalar size 4 bytes
        start_time, scalar size 8 bytes
+       tdenomk, scalar size 8 bytes
        end_time, scalar size 8 bytes
 
 
     Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
 
 
-LOOP BEGIN at state_test_offload.F90(134,7)
+LOOP BEGIN at state_test_offload.F90(137,7)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at state_test_offload.F90(135,7)
+   LOOP BEGIN at state_test_offload.F90(138,7)
       remark #25427: Loop Statements Reordered
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(139,7) ]
-      remark #15388: vectorization support: reference saltk has aligned access   [ state_test_offload.F90(139,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(137,7) ]
-      remark #15388: vectorization support: reference tempk has aligned access   [ state_test_offload.F90(137,7) ]
-      remark #15388: vectorization support: reference work1 has aligned access   [ state_test_offload.F90(144,7) ]
-      remark #15388: vectorization support: reference work2 has aligned access   [ state_test_offload.F90(145,7) ]
-      remark #15388: vectorization support: reference work3 has aligned access   [ state_test_offload.F90(146,7) ]
-      remark #15388: vectorization support: reference work4 has aligned access   [ state_test_offload.F90(147,7) ]
-      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(148,7) ]
-      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(149,7) ]
-      remark #15388: vectorization support: reference drhodt has aligned access   [ state_test_offload.F90(150,7) ]
-      remark #15388: vectorization support: reference rhofull has aligned access   [ state_test_offload.F90(151,7) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(140,7) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(140,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(138,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(138,7) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(141,7) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(141,7) ]
-      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(142,7) ]
       remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(142,7) ]
+      remark #15388: vectorization support: reference saltk has aligned access   [ state_test_offload.F90(142,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(140,7) ]
+      remark #15388: vectorization support: reference tempk has aligned access   [ state_test_offload.F90(140,7) ]
+      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(152,7) ]
+      remark #15388: vectorization support: reference drhodt has aligned access   [ state_test_offload.F90(153,7) ]
+      remark #15388: vectorization support: reference rhofull has aligned access   [ state_test_offload.F90(154,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(143,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(143,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(141,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(141,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(144,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(144,7) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(145,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(145,7) ]
       remark #15300: LOOP WAS VECTORIZED
       remark #15475: --- begin vector loop cost summary ---
-      remark #15476: scalar loop cost: 115 
-      remark #15477: vector loop cost: 10.750 
-      remark #15478: estimated potential speedup: 10.690 
-      remark #15479: lightweight vector operations: 53 
+      remark #15476: scalar loop cost: 98 
+      remark #15477: vector loop cost: 8.870 
+      remark #15478: estimated potential speedup: 11.040 
+      remark #15479: lightweight vector operations: 38 
       remark #15488: --- end vector loop cost summary ---
       remark #25456: Number of Array Refs Scalar Replaced In Loop: 5
-      remark #25018: Total number of lines prefetched=26
-      remark #25019: Number of spatial prefetches=26, dist=8
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(139,21) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(137,21) ]
+      remark #25018: Total number of lines prefetched=16
+      remark #25019: Number of spatial prefetches=16, dist=8
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(142,21) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(140,21) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(152,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(153,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(154,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(141,7) ]
       remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(144,7) ]
       remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(145,7) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(146,7) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(147,7) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(148,7) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(149,7) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(150,7) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(151,7) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(138,7) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(141,7) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(142,7) ]
       remark #25015: Estimate of max trip count of loop=1000
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(174,7)
+LOOP BEGIN at state_test_offload.F90(176,7)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at state_test_offload.F90(175,7)
-      remark #25427: Loop Statements Reordered
-      remark #15388: vectorization support: reference work4 has aligned access   [ state_test_offload.F90(201,10) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(201,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(201,10) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(201,10) ]
-      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(201,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(201,10) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(201,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(201,10) ]
-      remark #15388: vectorization support: reference work3 has aligned access   [ state_test_offload.F90(197,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(197,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(197,10) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(197,10) ]
-      remark #15388: vectorization support: reference work2 has aligned access   [ state_test_offload.F90(181,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(181,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(181,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(181,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(181,7) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(181,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(181,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(181,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(181,7) ]
-      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(181,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(181,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(181,7) ]
-      remark #15388: vectorization support: reference work1 has aligned access   [ state_test_offload.F90(177,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(177,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(177,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(177,7) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(177,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(177,7) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(177,7) ]
-      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(186,7) ]
-      remark #15388: vectorization support: reference work2 has aligned access   [ state_test_offload.F90(186,7) ]
-      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(189,10) ]
-      remark #15388: vectorization support: reference work1 has aligned access   [ state_test_offload.F90(189,10) ]
-      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(189,10) ]
-      remark #15388: vectorization support: reference rhofull has aligned access   [ state_test_offload.F90(193,10) ]
-      remark #15388: vectorization support: reference work1 has aligned access   [ state_test_offload.F90(193,10) ]
-      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(193,10) ]
-      remark #15388: vectorization support: reference drhodt has aligned access   [ state_test_offload.F90(207,10) ]
-      remark #15388: vectorization support: reference work3 has aligned access   [ state_test_offload.F90(207,10) ]
-      remark #15388: vectorization support: reference work1 has aligned access   [ state_test_offload.F90(207,10) ]
-      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(207,10) ]
-      remark #15388: vectorization support: reference work4 has aligned access   [ state_test_offload.F90(207,10) ]
-      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(207,10) ]
-      remark #15388: vectorization support: reference work3 has aligned access   [ state_test_offload.F90(211,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(211,10) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(211,10) ]
-      remark #15388: vectorization support: reference work4 has aligned access   [ state_test_offload.F90(214,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(214,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(214,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(214,10) ]
-      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(214,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(214,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(214,10) ]
-      remark #15388: vectorization support: reference drhods has aligned access   [ state_test_offload.F90(218,10) ]
-      remark #15388: vectorization support: reference work3 has aligned access   [ state_test_offload.F90(218,10) ]
-      remark #15388: vectorization support: reference work1 has aligned access   [ state_test_offload.F90(218,10) ]
-      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(218,10) ]
-      remark #15388: vectorization support: reference work4 has aligned access   [ state_test_offload.F90(218,10) ]
-      remark #15388: vectorization support: reference denomk has aligned access   [ state_test_offload.F90(218,10) ]
+   LOOP BEGIN at state_test_offload.F90(177,7)
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(179,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(179,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(179,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(179,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(179,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(179,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(188,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(188,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(188,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(188,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(188,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(188,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(188,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(188,7) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(188,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(188,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(188,7) ]
+      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(191,10) ]
+      remark #15388: vectorization support: reference rhofull has aligned access   [ state_test_offload.F90(195,10) ]
+      remark #15388: vectorization support: reference drhodt has aligned access   [ state_test_offload.F90(209,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(209,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(209,10) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(209,10) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(209,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(209,10) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(209,10) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(209,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(209,10) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(209,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(209,10) ]
+      remark #15388: vectorization support: reference drhods has aligned access   [ state_test_offload.F90(220,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(220,10) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(220,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(220,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(220,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(220,10) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(220,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(220,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(220,10) ]
       remark #15300: LOOP WAS VECTORIZED
       remark #15475: --- begin vector loop cost summary ---
-      remark #15476: scalar loop cost: 279 
-      remark #15477: vector loop cost: 45.500 
-      remark #15478: estimated potential speedup: 6.130 
-      remark #15479: lightweight vector operations: 193 
+      remark #15476: scalar loop cost: 258 
+      remark #15477: vector loop cost: 43.620 
+      remark #15478: estimated potential speedup: 5.910 
+      remark #15479: lightweight vector operations: 178 
       remark #15488: --- end vector loop cost summary ---
-      remark #25456: Number of Array Refs Scalar Replaced In Loop: 15
-      remark #25018: Total number of lines prefetched=24
-      remark #25019: Number of spatial prefetches=24, dist=7
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(202,32) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(203,18) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(203,57) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(181,7) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(177,7) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(186,7) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(189,10) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(193,10) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(207,10) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(211,10) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(214,10) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(218,10) ]
+      remark #25018: Total number of lines prefetched=14
+      remark #25019: Number of spatial prefetches=14, dist=8
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(179,30) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(180,41) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(186,12) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(191,10) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(195,10) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(209,10) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(220,10) ]
       remark #25015: Estimate of max trip count of loop=1000
    LOOP END
 LOOP END
 
     Report from: Code generation optimizations [cg]
 
-state_test_offload.F90(120,1):remark #34026: call to memcpy implemented as a call to optimized library version
-state_test_offload.F90(120,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (64, 0), and destination (alignment, offset): (64, 0)
+state_test_offload.F90(122,1):remark #34026: call to memcpy implemented as a call to optimized library version
+state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (64, 0), and destination (alignment, offset): (64, 0)
 ===========================================================================
