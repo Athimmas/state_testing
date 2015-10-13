@@ -7,8 +7,8 @@ program state_dummy
 implicit none
 
       integer (int_kind), parameter :: &
-      nx_block = 2744, & 
-      ny_block = 2744, &
+      nx_block = 2880, & 
+      ny_block = 2619, &
       km = 60
 
       integer (int_kind) i,j  
@@ -128,9 +128,9 @@ implicit none
       !$omp firstprivate(mwjfdens0t4,mwjfdens1t0,mwjfdens1t1,mwjfdens1t3) &
       !$omp firstprivate(mwjfdensqt0,mwjfdensqt2) 
 
-      call omp_set_num_threads(120)  
+      call omp_set_num_threads(240)  
       
-      !$omp do schedule(guided) 
+      !$omp do 
       do j=1,ny_block
       do i=1,nx_block
 
@@ -152,11 +152,11 @@ implicit none
 
       enddo
       enddo
-      !$omp end do
+      !$omp end do nowait 
 
-       !$omp end parallel          
+      !$omp end parallel          
 
-      call omp_set_num_threads(120)
+      call omp_set_num_threads(240)
 
 
       start_time=omp_get_wtime()
@@ -170,17 +170,9 @@ implicit none
       !$omp firstprivate(mwjfdens0t4,mwjfdens1t0,mwjfdens1t1,mwjfdens1t3) &
       !$omp firstprivate(mwjfdensqt0,mwjfdensqt2)  
       
-      !$omp do schedule(guided)  
+      !$omp do 
       do j=1,ny_block
       do i=1,nx_block
-
-      !TQ(i,j) = min(TEMPK(i,j),tmax(kk))
-      !TQ(i,j) = max(TQ(i,j),tmin(kk))
-      !SQ(i,j) = min(SALTK(i,j),smax(kk))
-      !SQ(i,j) = max(SQ(i,j),smin(kk))
-      !SQ(i,j)  = c1000*SQ(i,j)
-      !SQR(i,j) = sqrt(SQ(i,j))
-
 
       WORK1(i,j) = mwjfnums0t0 + TQ(i,j) * (mwjfnums0t1 + TQ(i,j) * (mwjfnums0t2 + &
               mwjfnums0t3 * TQ(i,j))) + SQ(i,j) * (mwjfnums1t0 +              &
@@ -227,7 +219,7 @@ implicit none
      !endif  
        enddo
        enddo
-       !!$omp end do
+       !$omp end do
 
        !$omp end parallel         
       end_time = omp_get_wtime()
