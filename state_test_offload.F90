@@ -131,10 +131,13 @@ implicit none
       !$omp firstprivate(mwjfdensqt0,mwjfdensqt2) &
       !$omp private(TWORK1,TWORK2,TWORK3,TWORK4)
 
-      call omp_set_num_threads(240)  
+      call omp_set_num_threads(16)  
       
-      !$omp do  
+      !$omp do schedule(static)  
       do j=1,ny_block
+      !dir$ ivdep
+      !dir$ simd
+      !dir$ vector nontemporal 
       do i=1,nx_block
 
       TQ(i,j) = min(TEMPK(i,j),tmax(kk))
@@ -151,11 +154,12 @@ implicit none
       !DENOMK(i,j)=c0
       RHOOUT(i,j)=c0
       DRHODT(i,j)=c0
-      RHOFULL(i,j)=c0 
+      RHOFULL(i,j)=c0
+      DRHODS(i,j)=c0 
 
       enddo
       enddo
-      !$omp end do  
+      !$omp end do nowait
 
       !$omp end parallel          
 
@@ -172,9 +176,12 @@ implicit none
       !$omp firstprivate(mwjfdensqt0,mwjfdensqt2) & 
       !$omp private(TWORK1,TWORK2,TWORK3,TWORK4,TDENOMK)
       
-      !$omp do  
+      !$omp do schedule(static) 
       do j=1,ny_block
-      do i=1,nx_block
+      !dir$ simd 
+      !dir$ ivdep
+      !dir$ vector nontemporal
+      do i=1,nx_block 
 
       TWORK1 = mwjfnums0t0 + TQ(i,j) * (mwjfnums0t1 + TQ(i,j) * (mwjfnums0t2 + &
               mwjfnums0t3 * TQ(i,j))) + SQ(i,j) * (mwjfnums1t0 +              &
@@ -185,14 +192,14 @@ implicit none
            SQ(i,j) * (mwjfdens1t0 + TQ(i,j) * (mwjfdens1t1 + TQ(i,j) * TQ(i,j) * mwjfdens1t3)+ &
            SQR(i,j) * (mwjfdensqt0 + TQ(i,j) * TQ(i,j) * mwjfdensqt2))
 
-      TDENOMK = c1/TWORK2
+          TDENOMK = c1/TWORK2
 
       !if (present(RHOOUT)) then
-         RHOOUT(i,j)  = TWORK1 * TDENOMK
+          RHOOUT(i,j)  = TWORK1 * TDENOMK
       !endif
 
       !if (present(RHOFULL)) then
-         RHOFULL(i,j) = TWORK1 * TDENOMK
+          RHOFULL(i,j) = TWORK1 * TDENOMK
       !endif
 
       !if (present(DRHODT)) then
@@ -205,8 +212,8 @@ implicit none
                  TQ(i,j) * (c2*(mwjfdens0t2 + SQ(i,j) * SQR(i,j) * mwjfdensqt2) +  &
                  TQ(i,j) * (c3*(mwjfdens0t3 + SQ(i,j) * mwjfdens1t3) +    &
                  TQ(i,j) *  c4*mwjfdens0t4))
-
-         DRHODT(i,j) = (TWORK3 - TWORK1 * TDENOMK * TWORK4)* TDENOMK
+        
+          DRHODT(i,j) = (TWORK3 - TWORK1 * TDENOMK * TWORK4)* TDENOMK
       !endif
 
       !if (present(DRHODS)) then
