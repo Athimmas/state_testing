@@ -37,11 +37,6 @@ subroutine state(k, kk, TEMPK, SALTK, this_block, RHOOUT, RHOFULL, DRHODT, DRHOD
 
       integer (int_kind), intent(in) :: this_block 
 
-      !integer (int_kind), parameter :: &
-      !nx_block = 2880, & 
-      !ny_block = 2619, &
-      !km = 60
-
       integer (int_kind) i,j  
 
       real (r8) start_time, end_time
@@ -151,7 +146,7 @@ subroutine state(k, kk, TEMPK, SALTK, this_block, RHOOUT, RHOFULL, DRHODT, DRHOD
 
       !dir$ offload begin target(mic:0)
 
-      call omp_set_num_threads(180)
+      start_time=omp_get_wtime()
 
       !dir$ assume_aligned SALTK: 64
       !dir$ assume_aligned RHOOUT: 64
@@ -178,12 +173,8 @@ subroutine state(k, kk, TEMPK, SALTK, this_block, RHOOUT, RHOFULL, DRHODT, DRHOD
       !dir$ vector nontemporal 
       do i=1,nx_block
 
-      TQ(i,j) = min(TEMPK(i,j),tmax(kk))
-      TQ(i,j) = max(TQ(i,j),tmin(kk))
-      SQ(i,j) = min(SALTK(i,j),smax(kk))
-      SQ(i,j) = max(SQ(i,j),smin(kk))
-      SQ(i,j)  = c1000*SQ(i,j)
-      SQR(i,j) = sqrt(SQ(i,j))
+      TQ(i,j) = TEMPK(i,j)
+      SQ(i,j) = SALTK(i,j)
 
       !WORK1(i,j)= c0
       !WORK2(i,j)= c0
@@ -226,6 +217,12 @@ subroutine state(k, kk, TEMPK, SALTK, this_block, RHOOUT, RHOFULL, DRHODT, DRHOD
       !dir$ vector nontemporal
       do i=1,nx_block 
 
+      TQ(i,j) = min(TEMPK(i,j),tmax(kk))
+      TQ(i,j) = max(TQ(i,j),tmin(kk))
+      SQ(i,j) = min(SALTK(i,j),smax(kk))
+      SQ(i,j) = max(SQ(i,j),smin(kk))
+      SQ(i,j)  = c1000*SQ(i,j)
+      SQR(i,j) = sqrt(SQ(i,j))
 
       TWORK1 = mwjfnums0t0 + TQ(i,j) * (mwjfnums0t1 + TQ(i,j) * (mwjfnums0t2 + &
               mwjfnums0t3 * TQ(i,j))) + SQ(i,j) * (mwjfnums1t0 +              &
