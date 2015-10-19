@@ -25,137 +25,134 @@ Begin optimization report for: STATE_DUMMY
 
     Report from: Interprocedural optimizations [ipo]
 
-INLINE REPORT: (STATE_DUMMY) [1/1=100.0%] state_test_offload.F90(1,9)
+INLINE REPORT: (STATE_DUMMY) [1/2=50.0%] state_test_offload.F90(1,9)
   -> EXTERN: (1,9) for_set_reentrancy
-  -> EXTERN: (90,12) for_random_number
-  -> EXTERN: (91,12) for_random_number
-  -> EXTERN: (92,12) for_random_number
-  -> EXTERN: (93,12) for_random_number
-  -> EXTERN: (112,36) __powr8i4
-  -> EXTERN: (134,12) omp_set_num_threads
-  -> EXTERN: (167,18) omp_get_wtime
-  -> EXTERN: (234,18) omp_get_wtime
-  -> EXTERN: (239,7) for_write_seq_lis
-  -> EXTERN: (241,7) for_write_seq_lis
-  -> EXTERN: (242,7) for_write_seq_lis
-  -> EXTERN: (243,7) for_write_seq_lis
-  -> EXTERN: (244,7) for_write_seq_lis
-  -> EXTERN: (245,7) for_write_seq_lis
-  -> EXTERN: (246,7) for_write_seq_lis
-  -> EXTERN: (247,7) for_write_seq_lis
-  -> EXTERN: (248,7) for_write_seq_lis
-  -> EXTERN: (249,7) for_write_seq_lis
-
-
-    Report from: OpenMP optimizations [openmp]
-
-OpenMP Construct at state_test_offload.F90(124,7)
-   remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
-OpenMP Construct at state_test_offload.F90(169,7)
-   remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
-
-    Report from: Offload optimizations [offload]
-
-OFFLOAD:state_dummy(122,1):  Offload to target MIC <expr>
- Evaluate length/align/alloc_if/free_if/alloc/into expressions
- Data sent from host to target
-       __offload_stack_ptr_state_dummy_$TQ_V$3e.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$TEMPK_V$40.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SQ_V$3d.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SALTK_V$3f.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$WORK1_V$3a.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$WORK2_V$39.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$WORK3_V$38.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$WORK4_V$37.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SQR_V$3c.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$DENOMK_V$3b.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$RHOOUT_V$44.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$RHOFULL_V$43.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$DRHODS_V$41.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$DRHODT_V$42.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$TMAX_V$30.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$TMIN_V$31.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SMAX_V$2e.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SMIN_V$2f.0, pointer to array reference expression with base
-       kk, scalar size 4 bytes
-       mwjfnums0t0, scalar size 8 bytes
-       mwjfnums0t1, scalar size 8 bytes
-       mwjfnums0t2, scalar size 8 bytes
-       mwjfnums0t3, scalar size 8 bytes
-       mwjfnums1t0, scalar size 8 bytes
-       mwjfnums1t1, scalar size 8 bytes
-       mwjfnums2t0, scalar size 8 bytes
-       mwjfdens0t0, scalar size 8 bytes
-       mwjfdens0t1, scalar size 8 bytes
-       mwjfdens0t2, scalar size 8 bytes
-       mwjfdens0t3, scalar size 8 bytes
-       mwjfdens0t4, scalar size 8 bytes
-       mwjfdens1t0, scalar size 8 bytes
-       mwjfdens1t1, scalar size 8 bytes
-       mwjfdens1t3, scalar size 8 bytes
-       mwjfdensqt0, scalar size 8 bytes
-       mwjfdensqt2, scalar size 8 bytes
-       twork1, scalar size 8 bytes
-       twork2, scalar size 8 bytes
-       twork3, scalar size 8 bytes
-       twork4, scalar size 8 bytes
-       j, scalar size 4 bytes
-       i, scalar size 4 bytes
-       start_time, scalar size 8 bytes
-       tdenomk, scalar size 8 bytes
-       end_time, scalar size 8 bytes
- Data received by host from target
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       kk, scalar size 4 bytes
-       mwjfnums0t0, scalar size 8 bytes
-       mwjfnums0t1, scalar size 8 bytes
-       mwjfnums0t2, scalar size 8 bytes
-       mwjfnums0t3, scalar size 8 bytes
-       mwjfnums1t0, scalar size 8 bytes
-       mwjfnums1t1, scalar size 8 bytes
-       mwjfnums2t0, scalar size 8 bytes
-       mwjfdens0t0, scalar size 8 bytes
-       mwjfdens0t1, scalar size 8 bytes
-       mwjfdens0t2, scalar size 8 bytes
-       mwjfdens0t3, scalar size 8 bytes
-       mwjfdens0t4, scalar size 8 bytes
-       mwjfdens1t0, scalar size 8 bytes
-       mwjfdens1t1, scalar size 8 bytes
-       mwjfdens1t3, scalar size 8 bytes
-       mwjfdensqt0, scalar size 8 bytes
-       mwjfdensqt2, scalar size 8 bytes
-       twork1, scalar size 8 bytes
-       twork2, scalar size 8 bytes
-       twork3, scalar size 8 bytes
-       twork4, scalar size 8 bytes
-       j, scalar size 4 bytes
-       i, scalar size 4 bytes
-       start_time, scalar size 8 bytes
-       tdenomk, scalar size 8 bytes
-       end_time, scalar size 8 bytes
+  -> EXTERN: (23,12) for_random_number
+  -> EXTERN: (24,12) for_random_number
+  -> EXTERN: (25,12) for_random_number
+  -> EXTERN: (26,12) for_random_number
+  -> (28,12) STATE_DUMMY:STATE (isz = 1068) (sz = 1089)
+     [[ Inlining inhibited by overrideable criterion  <1>]]
 
 
     Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
 
 
-LOOP BEGIN at state_test_offload.F90(84,7)
+LOOP BEGIN at state_test_offload.F90(23,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at state_test_offload.F90(23,12)
+      remark #15388: vectorization support: reference tmix has aligned access
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 104 
+      remark #15477: vector loop cost: 38.000 
+      remark #15478: estimated potential speedup: 2.730 
+      remark #15479: lightweight vector operations: 4 
+      remark #15480: medium-overhead vector operations: 1 
+      remark #15481: heavy-overhead vector operations: 1 
+      remark #15482: vectorized math library calls: 1 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=1440
+   LOOP END
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(24,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at state_test_offload.F90(24,12)
+      remark #15388: vectorization support: reference temp1 has aligned access
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 104 
+      remark #15477: vector loop cost: 38.000 
+      remark #15478: estimated potential speedup: 2.730 
+      remark #15479: lightweight vector operations: 4 
+      remark #15480: medium-overhead vector operations: 1 
+      remark #15481: heavy-overhead vector operations: 1 
+      remark #15482: vectorized math library calls: 1 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=1440
+   LOOP END
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(25,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at state_test_offload.F90(25,12)
+      remark #15388: vectorization support: reference temp2 has aligned access
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 104 
+      remark #15477: vector loop cost: 38.000 
+      remark #15478: estimated potential speedup: 2.730 
+      remark #15479: lightweight vector operations: 4 
+      remark #15480: medium-overhead vector operations: 1 
+      remark #15481: heavy-overhead vector operations: 1 
+      remark #15482: vectorized math library calls: 1 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=1440
+   LOOP END
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(26,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at state_test_offload.F90(26,12)
+      remark #15388: vectorization support: reference temp3 has aligned access
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 104 
+      remark #15477: vector loop cost: 38.000 
+      remark #15478: estimated potential speedup: 2.730 
+      remark #15479: lightweight vector operations: 4 
+      remark #15480: medium-overhead vector operations: 1 
+      remark #15481: heavy-overhead vector operations: 1 
+      remark #15482: vectorized math library calls: 1 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=1440
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: STATE_DUMMY:STATE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (STATE_DUMMY:STATE) [2/2=100.0%] state_test_offload.F90(33,12)
+  -> EXTERN: (123,12) for_random_number
+  -> EXTERN: (124,12) for_random_number
+  -> EXTERN: (142,36) __powr8i4
+  -> EXTERN: (154,12) omp_set_num_threads
+  -> EXTERN: (203,18) omp_get_wtime
+  -> EXTERN: (278,18) omp_get_wtime
+  -> EXTERN: (282,7) for_write_seq_lis
+  -> EXTERN: (284,7) for_write_seq_lis
+  -> EXTERN: (285,7) for_write_seq_lis
+  -> EXTERN: (286,7) for_write_seq_lis
+  -> EXTERN: (287,7) for_write_seq_lis
+  -> EXTERN: (288,7) for_write_seq_lis
+  -> EXTERN: (289,7) for_write_seq_lis
+  -> EXTERN: (290,7) for_write_seq_lis
+  -> EXTERN: (291,7) for_write_seq_lis
+  -> EXTERN: (292,7) for_write_seq_lis
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at state_test_offload.F90(164,7)
+   remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
+OpenMP Construct at state_test_offload.F90(212,7)
+   remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at state_test_offload.F90(117,7)
    remark #15388: vectorization support: reference tmin has aligned access
    remark #15399: vectorization support: unroll factor set to 2
    remark #15300: LOOP WAS VECTORIZED
@@ -170,7 +167,7 @@ LOOP BEGIN at state_test_offload.F90(84,7)
    remark #25015: Estimate of max trip count of loop=15
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(85,7)
+LOOP BEGIN at state_test_offload.F90(118,7)
    remark #15388: vectorization support: reference tmax has aligned access
    remark #15399: vectorization support: unroll factor set to 2
    remark #15300: LOOP WAS VECTORIZED
@@ -185,12 +182,12 @@ LOOP BEGIN at state_test_offload.F90(85,7)
    remark #25015: Estimate of max trip count of loop=15
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(86,7)
+LOOP BEGIN at state_test_offload.F90(119,7)
    remark #25408: memset generated
    remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(87,7)
+LOOP BEGIN at state_test_offload.F90(120,7)
    remark #15388: vectorization support: reference smax has aligned access
    remark #15399: vectorization support: unroll factor set to 2
    remark #15300: LOOP WAS VECTORIZED
@@ -205,11 +202,11 @@ LOOP BEGIN at state_test_offload.F90(87,7)
    remark #25015: Estimate of max trip count of loop=15
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(90,12)
+LOOP BEGIN at state_test_offload.F90(123,12)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at state_test_offload.F90(90,12)
-      remark #15388: vectorization support: reference TQ.0.1_ptr.var has aligned access
+   LOOP BEGIN at state_test_offload.F90(123,12)
+      remark #15388: vectorization support: reference _8.0.2_ptr.var has aligned access
       remark #15300: LOOP WAS VECTORIZED
       remark #15449: unmasked aligned unit stride stores: 1 
       remark #15475: --- begin vector loop cost summary ---
@@ -225,11 +222,11 @@ LOOP BEGIN at state_test_offload.F90(90,12)
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(91,12)
+LOOP BEGIN at state_test_offload.F90(124,12)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at state_test_offload.F90(91,12)
-      remark #15388: vectorization support: reference SQ.0.1_ptr.var has aligned access
+   LOOP BEGIN at state_test_offload.F90(124,12)
+      remark #15388: vectorization support: reference _8.0.2_ptr.var has aligned access
       remark #15300: LOOP WAS VECTORIZED
       remark #15449: unmasked aligned unit stride stores: 1 
       remark #15475: --- begin vector loop cost summary ---
@@ -245,582 +242,752 @@ LOOP BEGIN at state_test_offload.F90(91,12)
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(92,12)
+LOOP BEGIN at state_test_offload.F90(284,16)
+   remark #25420: Collapsed with loop at line 284 
+   remark #15388: vectorization support: reference _8.0.2_ptr.var has aligned access
+   remark #15399: vectorization support: unroll factor set to 8
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 6 
+   remark #15477: vector loop cost: 20.000 
+   remark #15478: estimated potential speedup: 2.390 
+   remark #15479: lightweight vector operations: 4 
+   remark #15480: medium-overhead vector operations: 1 
+   remark #15488: --- end vector loop cost summary ---
+   remark #25015: Estimate of max trip count of loop=471420
+
+   LOOP BEGIN at state_test_offload.F90(284,16)
+      remark #25421: Loop eliminated in Collapsing 
+
+   LOOP END
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(285,16)
+   remark #25420: Collapsed with loop at line 285 
+   remark #15388: vectorization support: reference _8.0.2_ptr.var has aligned access
+   remark #15399: vectorization support: unroll factor set to 8
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 6 
+   remark #15477: vector loop cost: 20.000 
+   remark #15478: estimated potential speedup: 2.390 
+   remark #15479: lightweight vector operations: 4 
+   remark #15480: medium-overhead vector operations: 1 
+   remark #15488: --- end vector loop cost summary ---
+   remark #25015: Estimate of max trip count of loop=471420
+
+   LOOP BEGIN at state_test_offload.F90(285,16)
+      remark #25421: Loop eliminated in Collapsing 
+
+   LOOP END
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(286,16)
+   remark #25420: Collapsed with loop at line 286 
+   remark #15388: vectorization support: reference _8.0.2_ptr.var has aligned access
+   remark #15399: vectorization support: unroll factor set to 8
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 6 
+   remark #15477: vector loop cost: 20.000 
+   remark #15478: estimated potential speedup: 2.390 
+   remark #15479: lightweight vector operations: 4 
+   remark #15480: medium-overhead vector operations: 1 
+   remark #15488: --- end vector loop cost summary ---
+   remark #25015: Estimate of max trip count of loop=471420
+
+   LOOP BEGIN at state_test_offload.F90(286,16)
+      remark #25421: Loop eliminated in Collapsing 
+
+   LOOP END
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(287,16)
+   remark #25420: Collapsed with loop at line 287 
+   remark #15388: vectorization support: reference _8.0.2_ptr.var has aligned access
+   remark #15399: vectorization support: unroll factor set to 8
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 6 
+   remark #15477: vector loop cost: 20.000 
+   remark #15478: estimated potential speedup: 2.390 
+   remark #15479: lightweight vector operations: 4 
+   remark #15480: medium-overhead vector operations: 1 
+   remark #15488: --- end vector loop cost summary ---
+   remark #25015: Estimate of max trip count of loop=471420
+
+   LOOP BEGIN at state_test_offload.F90(287,16)
+      remark #25421: Loop eliminated in Collapsing 
+
+   LOOP END
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(288,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(288,16)
+   remark #25420: Collapsed with loop at line 288 
+   remark #15388: vectorization support: reference drhods has aligned access
+   remark #15399: vectorization support: unroll factor set to 8
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15442: entire loop may be executed in remainder
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 6 
+   remark #15477: vector loop cost: 20.000 
+   remark #15478: estimated potential speedup: 2.390 
+   remark #15479: lightweight vector operations: 4 
+   remark #15480: medium-overhead vector operations: 1 
+   remark #15488: --- end vector loop cost summary ---
+   remark #25015: Estimate of max trip count of loop=471420
+
+   LOOP BEGIN at state_test_offload.F90(288,16)
+      remark #25421: Loop eliminated in Collapsing 
+
+   LOOP END
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(288,16)
+<Remainder>
+   remark #15388: vectorization support: reference drhods has aligned access
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(288,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(289,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(289,16)
+   remark #25420: Collapsed with loop at line 289 
+   remark #15388: vectorization support: reference drhodt has aligned access
+   remark #15399: vectorization support: unroll factor set to 8
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15442: entire loop may be executed in remainder
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 6 
+   remark #15477: vector loop cost: 20.000 
+   remark #15478: estimated potential speedup: 2.390 
+   remark #15479: lightweight vector operations: 4 
+   remark #15480: medium-overhead vector operations: 1 
+   remark #15488: --- end vector loop cost summary ---
+   remark #25015: Estimate of max trip count of loop=471420
+
+   LOOP BEGIN at state_test_offload.F90(289,16)
+      remark #25421: Loop eliminated in Collapsing 
+
+   LOOP END
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(289,16)
+<Remainder>
+   remark #15388: vectorization support: reference drhodt has aligned access
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(289,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(290,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(290,16)
+   remark #25420: Collapsed with loop at line 290 
+   remark #15388: vectorization support: reference rhoout has aligned access
+   remark #15399: vectorization support: unroll factor set to 8
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15442: entire loop may be executed in remainder
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 6 
+   remark #15477: vector loop cost: 20.000 
+   remark #15478: estimated potential speedup: 2.390 
+   remark #15479: lightweight vector operations: 4 
+   remark #15480: medium-overhead vector operations: 1 
+   remark #15488: --- end vector loop cost summary ---
+   remark #25015: Estimate of max trip count of loop=471420
+
+   LOOP BEGIN at state_test_offload.F90(290,16)
+      remark #25421: Loop eliminated in Collapsing 
+
+   LOOP END
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(290,16)
+<Remainder>
+   remark #15388: vectorization support: reference rhoout has aligned access
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(290,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(291,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(291,16)
+   remark #25420: Collapsed with loop at line 291 
+   remark #15388: vectorization support: reference rhofull has aligned access
+   remark #15399: vectorization support: unroll factor set to 8
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15442: entire loop may be executed in remainder
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 6 
+   remark #15477: vector loop cost: 20.000 
+   remark #15478: estimated potential speedup: 2.390 
+   remark #15479: lightweight vector operations: 4 
+   remark #15480: medium-overhead vector operations: 1 
+   remark #15488: --- end vector loop cost summary ---
+   remark #25015: Estimate of max trip count of loop=471420
+
+   LOOP BEGIN at state_test_offload.F90(291,16)
+      remark #25421: Loop eliminated in Collapsing 
+
+   LOOP END
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(291,16)
+<Remainder>
+   remark #15388: vectorization support: reference rhofull has aligned access
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(291,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(292,16)
+   remark #25420: Collapsed with loop at line 292 
+   remark #15388: vectorization support: reference _8.0.2_ptr.var has aligned access
+   remark #15399: vectorization support: unroll factor set to 8
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 6 
+   remark #15477: vector loop cost: 20.000 
+   remark #15478: estimated potential speedup: 2.390 
+   remark #15479: lightweight vector operations: 4 
+   remark #15480: medium-overhead vector operations: 1 
+   remark #15488: --- end vector loop cost summary ---
+   remark #25015: Estimate of max trip count of loop=471420
+
+   LOOP BEGIN at state_test_offload.F90(292,16)
+      remark #25421: Loop eliminated in Collapsing 
+
+   LOOP END
+LOOP END
+
+LOOP BEGIN at state_test_offload.F90(175,7)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at state_test_offload.F90(92,12)
-      remark #15388: vectorization support: reference TEMPK.0.1_ptr.var has aligned access
-      remark #15300: LOOP WAS VECTORIZED
-      remark #15449: unmasked aligned unit stride stores: 1 
-      remark #15475: --- begin vector loop cost summary ---
-      remark #15476: scalar loop cost: 104 
-      remark #15477: vector loop cost: 38.000 
-      remark #15478: estimated potential speedup: 2.730 
-      remark #15479: lightweight vector operations: 4 
-      remark #15480: medium-overhead vector operations: 1 
-      remark #15481: heavy-overhead vector operations: 1 
-      remark #15482: vectorized math library calls: 1 
-      remark #15488: --- end vector loop cost summary ---
-      remark #25015: Estimate of max trip count of loop=1440
-   LOOP END
-LOOP END
-
-LOOP BEGIN at state_test_offload.F90(93,12)
-   remark #15542: loop was not vectorized: inner loop was already vectorized
-
-   LOOP BEGIN at state_test_offload.F90(93,12)
-      remark #15388: vectorization support: reference SALTK.0.1_ptr.var has aligned access
-      remark #15300: LOOP WAS VECTORIZED
-      remark #15449: unmasked aligned unit stride stores: 1 
-      remark #15475: --- begin vector loop cost summary ---
-      remark #15476: scalar loop cost: 104 
-      remark #15477: vector loop cost: 38.000 
-      remark #15478: estimated potential speedup: 2.730 
-      remark #15479: lightweight vector operations: 4 
-      remark #15480: medium-overhead vector operations: 1 
-      remark #15481: heavy-overhead vector operations: 1 
-      remark #15482: vectorized math library calls: 1 
-      remark #15488: --- end vector loop cost summary ---
-      remark #25015: Estimate of max trip count of loop=1440
-   LOOP END
-LOOP END
-
-LOOP BEGIN at state_test_offload.F90(241,16)
-   remark #25420: Collapsed with loop at line 241 
-   remark #15388: vectorization support: reference WORK1.0.1_ptr.var has aligned access
-   remark #15399: vectorization support: unroll factor set to 8
-   remark #15300: LOOP WAS VECTORIZED
-   remark #15448: unmasked aligned unit stride loads: 1 
-   remark #15475: --- begin vector loop cost summary ---
-   remark #15476: scalar loop cost: 6 
-   remark #15477: vector loop cost: 20.000 
-   remark #15478: estimated potential speedup: 2.390 
-   remark #15479: lightweight vector operations: 4 
-   remark #15480: medium-overhead vector operations: 1 
-   remark #15488: --- end vector loop cost summary ---
-   remark #25015: Estimate of max trip count of loop=471420
-
-   LOOP BEGIN at state_test_offload.F90(241,16)
-      remark #25421: Loop eliminated in Collapsing 
-
-   LOOP END
-LOOP END
-
-LOOP BEGIN at state_test_offload.F90(242,16)
-   remark #25420: Collapsed with loop at line 242 
-   remark #15388: vectorization support: reference WORK2.0.1_ptr.var has aligned access
-   remark #15399: vectorization support: unroll factor set to 8
-   remark #15300: LOOP WAS VECTORIZED
-   remark #15448: unmasked aligned unit stride loads: 1 
-   remark #15475: --- begin vector loop cost summary ---
-   remark #15476: scalar loop cost: 6 
-   remark #15477: vector loop cost: 20.000 
-   remark #15478: estimated potential speedup: 2.390 
-   remark #15479: lightweight vector operations: 4 
-   remark #15480: medium-overhead vector operations: 1 
-   remark #15488: --- end vector loop cost summary ---
-   remark #25015: Estimate of max trip count of loop=471420
-
-   LOOP BEGIN at state_test_offload.F90(242,16)
-      remark #25421: Loop eliminated in Collapsing 
-
-   LOOP END
-LOOP END
-
-LOOP BEGIN at state_test_offload.F90(243,16)
-   remark #25420: Collapsed with loop at line 243 
-   remark #15388: vectorization support: reference WORK3.0.1_ptr.var has aligned access
-   remark #15399: vectorization support: unroll factor set to 8
-   remark #15300: LOOP WAS VECTORIZED
-   remark #15448: unmasked aligned unit stride loads: 1 
-   remark #15475: --- begin vector loop cost summary ---
-   remark #15476: scalar loop cost: 6 
-   remark #15477: vector loop cost: 20.000 
-   remark #15478: estimated potential speedup: 2.390 
-   remark #15479: lightweight vector operations: 4 
-   remark #15480: medium-overhead vector operations: 1 
-   remark #15488: --- end vector loop cost summary ---
-   remark #25015: Estimate of max trip count of loop=471420
-
-   LOOP BEGIN at state_test_offload.F90(243,16)
-      remark #25421: Loop eliminated in Collapsing 
-
-   LOOP END
-LOOP END
-
-LOOP BEGIN at state_test_offload.F90(244,16)
-   remark #25420: Collapsed with loop at line 244 
-   remark #15388: vectorization support: reference WORK4.0.1_ptr.var has aligned access
-   remark #15399: vectorization support: unroll factor set to 8
-   remark #15300: LOOP WAS VECTORIZED
-   remark #15448: unmasked aligned unit stride loads: 1 
-   remark #15475: --- begin vector loop cost summary ---
-   remark #15476: scalar loop cost: 6 
-   remark #15477: vector loop cost: 20.000 
-   remark #15478: estimated potential speedup: 2.390 
-   remark #15479: lightweight vector operations: 4 
-   remark #15480: medium-overhead vector operations: 1 
-   remark #15488: --- end vector loop cost summary ---
-   remark #25015: Estimate of max trip count of loop=471420
-
-   LOOP BEGIN at state_test_offload.F90(244,16)
-      remark #25421: Loop eliminated in Collapsing 
-
-   LOOP END
-LOOP END
-
-LOOP BEGIN at state_test_offload.F90(245,16)
-   remark #25420: Collapsed with loop at line 245 
-   remark #15388: vectorization support: reference DRHODS.0.1_ptr.var has aligned access
-   remark #15399: vectorization support: unroll factor set to 8
-   remark #15300: LOOP WAS VECTORIZED
-   remark #15448: unmasked aligned unit stride loads: 1 
-   remark #15475: --- begin vector loop cost summary ---
-   remark #15476: scalar loop cost: 6 
-   remark #15477: vector loop cost: 20.000 
-   remark #15478: estimated potential speedup: 2.390 
-   remark #15479: lightweight vector operations: 4 
-   remark #15480: medium-overhead vector operations: 1 
-   remark #15488: --- end vector loop cost summary ---
-   remark #25015: Estimate of max trip count of loop=471420
-
-   LOOP BEGIN at state_test_offload.F90(245,16)
-      remark #25421: Loop eliminated in Collapsing 
-
-   LOOP END
-LOOP END
-
-LOOP BEGIN at state_test_offload.F90(246,16)
-   remark #25420: Collapsed with loop at line 246 
-   remark #15388: vectorization support: reference DRHODT.0.1_ptr.var has aligned access
-   remark #15399: vectorization support: unroll factor set to 8
-   remark #15300: LOOP WAS VECTORIZED
-   remark #15448: unmasked aligned unit stride loads: 1 
-   remark #15475: --- begin vector loop cost summary ---
-   remark #15476: scalar loop cost: 6 
-   remark #15477: vector loop cost: 20.000 
-   remark #15478: estimated potential speedup: 2.390 
-   remark #15479: lightweight vector operations: 4 
-   remark #15480: medium-overhead vector operations: 1 
-   remark #15488: --- end vector loop cost summary ---
-   remark #25015: Estimate of max trip count of loop=471420
-
-   LOOP BEGIN at state_test_offload.F90(246,16)
-      remark #25421: Loop eliminated in Collapsing 
-
-   LOOP END
-LOOP END
-
-LOOP BEGIN at state_test_offload.F90(247,16)
-   remark #25420: Collapsed with loop at line 247 
-   remark #15388: vectorization support: reference RHOOUT.0.1_ptr.var has aligned access
-   remark #15399: vectorization support: unroll factor set to 8
-   remark #15300: LOOP WAS VECTORIZED
-   remark #15448: unmasked aligned unit stride loads: 1 
-   remark #15475: --- begin vector loop cost summary ---
-   remark #15476: scalar loop cost: 6 
-   remark #15477: vector loop cost: 20.000 
-   remark #15478: estimated potential speedup: 2.390 
-   remark #15479: lightweight vector operations: 4 
-   remark #15480: medium-overhead vector operations: 1 
-   remark #15488: --- end vector loop cost summary ---
-   remark #25015: Estimate of max trip count of loop=471420
-
-   LOOP BEGIN at state_test_offload.F90(247,16)
-      remark #25421: Loop eliminated in Collapsing 
-
-   LOOP END
-LOOP END
-
-LOOP BEGIN at state_test_offload.F90(248,16)
-   remark #25420: Collapsed with loop at line 248 
-   remark #15388: vectorization support: reference RHOFULL.0.1_ptr.var has aligned access
-   remark #15399: vectorization support: unroll factor set to 8
-   remark #15300: LOOP WAS VECTORIZED
-   remark #15448: unmasked aligned unit stride loads: 1 
-   remark #15475: --- begin vector loop cost summary ---
-   remark #15476: scalar loop cost: 6 
-   remark #15477: vector loop cost: 20.000 
-   remark #15478: estimated potential speedup: 2.390 
-   remark #15479: lightweight vector operations: 4 
-   remark #15480: medium-overhead vector operations: 1 
-   remark #15488: --- end vector loop cost summary ---
-   remark #25015: Estimate of max trip count of loop=471420
-
-   LOOP BEGIN at state_test_offload.F90(248,16)
-      remark #25421: Loop eliminated in Collapsing 
-
-   LOOP END
-LOOP END
-
-LOOP BEGIN at state_test_offload.F90(249,16)
-   remark #25420: Collapsed with loop at line 249 
-   remark #15388: vectorization support: reference DENOMK.0.1_ptr.var has aligned access
-   remark #15399: vectorization support: unroll factor set to 8
-   remark #15300: LOOP WAS VECTORIZED
-   remark #15448: unmasked aligned unit stride loads: 1 
-   remark #15475: --- begin vector loop cost summary ---
-   remark #15476: scalar loop cost: 6 
-   remark #15477: vector loop cost: 20.000 
-   remark #15478: estimated potential speedup: 2.390 
-   remark #15479: lightweight vector operations: 4 
-   remark #15480: medium-overhead vector operations: 1 
-   remark #15488: --- end vector loop cost summary ---
-   remark #25015: Estimate of max trip count of loop=471420
-
-   LOOP BEGIN at state_test_offload.F90(249,16)
-      remark #25421: Loop eliminated in Collapsing 
-
-   LOOP END
-LOOP END
-
-    Report from: Code generation optimizations [cg]
-
-state_test_offload.F90(86,7):remark #34000: call to memset implemented inline with stores with proven (alignment, offset): (64, 0)
-state_test_offload.F90(122,1):remark #34026: call to memcpy implemented as a call to optimized library version
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-===========================================================================
-
-    Report from: Interprocedural optimizations [ipo]
-
-  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
-  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
-  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
-
-INLINING OPTION VALUES:
-  -inline-factor: 100
-  -inline-min-size: 30
-  -inline-max-size: 230
-  -inline-max-total-size: 2000
-  -inline-max-per-routine: 10000
-  -inline-max-per-compile: 500000
-
-In the inlining report below:
-   "sz" refers to the "size" of the routine. The smaller a routine's size,
-      the more likely it is to be inlined.
-   "isz" refers to the "inlined size" of the routine. This is the amount
-      the calling routine will grow if the called routine is inlined into it.
-      The compiler generally limits the amount a routine can grow by having
-      routines inlined into it.
-
-*MIC* Begin optimization report for: STATE_DUMMY
-
-    Report from: Interprocedural optimizations [ipo]
-
-INLINE REPORT: (STATE_DUMMY) [1/1=100.0%] state_test_offload.F90(1,9)
-  -> EXTERN: (1,9) for_set_reentrancy
-  -> EXTERN: (90,12) for_random_number
-  -> EXTERN: (91,12) for_random_number
-  -> EXTERN: (92,12) for_random_number
-  -> EXTERN: (93,12) for_random_number
-  -> EXTERN: (112,36) __powr8i4
-  -> EXTERN: (134,12) omp_set_num_threads
-  -> EXTERN: (167,18) omp_get_wtime
-  -> EXTERN: (234,18) omp_get_wtime
-  -> EXTERN: (239,7) for_write_seq_lis
-  -> EXTERN: (241,7) for_write_seq_lis
-  -> EXTERN: (242,7) for_write_seq_lis
-  -> EXTERN: (243,7) for_write_seq_lis
-  -> EXTERN: (244,7) for_write_seq_lis
-  -> EXTERN: (245,7) for_write_seq_lis
-  -> EXTERN: (246,7) for_write_seq_lis
-  -> EXTERN: (247,7) for_write_seq_lis
-  -> EXTERN: (248,7) for_write_seq_lis
-  -> EXTERN: (249,7) for_write_seq_lis
-
-
-    Report from: OpenMP optimizations [openmp]
-
-OpenMP Construct at state_test_offload.F90(124,7)
-   remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
-OpenMP Construct at state_test_offload.F90(169,7)
-   remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
-
-    Report from: Offload optimizations [offload]
-
-OFFLOAD:MAIN__(122,1):  Outlined offload region
- Data received by target from host
-       __offload_stack_ptr_state_dummy_$TQ_V$3e.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$TEMPK_V$40.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SQ_V$3d.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SALTK_V$3f.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$WORK1_V$3a.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$WORK2_V$39.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$WORK3_V$38.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$WORK4_V$37.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SQR_V$3c.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$DENOMK_V$3b.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$RHOOUT_V$44.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$RHOFULL_V$43.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$DRHODS_V$41.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$DRHODT_V$42.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$TMAX_V$30.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$TMIN_V$31.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SMAX_V$2e.0, pointer to array reference expression with base
-       __offload_stack_ptr_state_dummy_$SMIN_V$2f.0, pointer to array reference expression with base
-       kk, scalar size 4 bytes
-       mwjfnums0t0, scalar size 8 bytes
-       mwjfnums0t1, scalar size 8 bytes
-       mwjfnums0t2, scalar size 8 bytes
-       mwjfnums0t3, scalar size 8 bytes
-       mwjfnums1t0, scalar size 8 bytes
-       mwjfnums1t1, scalar size 8 bytes
-       mwjfnums2t0, scalar size 8 bytes
-       mwjfdens0t0, scalar size 8 bytes
-       mwjfdens0t1, scalar size 8 bytes
-       mwjfdens0t2, scalar size 8 bytes
-       mwjfdens0t3, scalar size 8 bytes
-       mwjfdens0t4, scalar size 8 bytes
-       mwjfdens1t0, scalar size 8 bytes
-       mwjfdens1t1, scalar size 8 bytes
-       mwjfdens1t3, scalar size 8 bytes
-       mwjfdensqt0, scalar size 8 bytes
-       mwjfdensqt2, scalar size 8 bytes
-       twork1, scalar size 8 bytes
-       twork2, scalar size 8 bytes
-       twork3, scalar size 8 bytes
-       twork4, scalar size 8 bytes
-       j, scalar size 4 bytes
-       i, scalar size 4 bytes
-       start_time, scalar size 8 bytes
-       tdenomk, scalar size 8 bytes
-       end_time, scalar size 8 bytes
- Data sent from target to host
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       __offload_stack_ptr_MAIN__.64, pointer to array reference expression with base
-       kk, scalar size 4 bytes
-       mwjfnums0t0, scalar size 8 bytes
-       mwjfnums0t1, scalar size 8 bytes
-       mwjfnums0t2, scalar size 8 bytes
-       mwjfnums0t3, scalar size 8 bytes
-       mwjfnums1t0, scalar size 8 bytes
-       mwjfnums1t1, scalar size 8 bytes
-       mwjfnums2t0, scalar size 8 bytes
-       mwjfdens0t0, scalar size 8 bytes
-       mwjfdens0t1, scalar size 8 bytes
-       mwjfdens0t2, scalar size 8 bytes
-       mwjfdens0t3, scalar size 8 bytes
-       mwjfdens0t4, scalar size 8 bytes
-       mwjfdens1t0, scalar size 8 bytes
-       mwjfdens1t1, scalar size 8 bytes
-       mwjfdens1t3, scalar size 8 bytes
-       mwjfdensqt0, scalar size 8 bytes
-       mwjfdensqt2, scalar size 8 bytes
-       twork1, scalar size 8 bytes
-       twork2, scalar size 8 bytes
-       twork3, scalar size 8 bytes
-       twork4, scalar size 8 bytes
-       j, scalar size 4 bytes
-       i, scalar size 4 bytes
-       start_time, scalar size 8 bytes
-       tdenomk, scalar size 8 bytes
-       end_time, scalar size 8 bytes
-
-
-    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
-
-
-LOOP BEGIN at state_test_offload.F90(137,7)
-   remark #15542: loop was not vectorized: inner loop was already vectorized
-
-   LOOP BEGIN at state_test_offload.F90(141,7)
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(143,7) ]
-      remark #15388: vectorization support: reference tempk has aligned access   [ state_test_offload.F90(143,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(144,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(144,7) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(145,7) ]
-      remark #15388: vectorization support: reference saltk has aligned access   [ state_test_offload.F90(145,7) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(146,7) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(146,7) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(147,7) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(147,7) ]
-      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(148,7) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(148,7) ]
-      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(155,7) ]
-      remark #15388: vectorization support: reference drhodt has aligned access   [ state_test_offload.F90(156,7) ]
-      remark #15388: vectorization support: reference rhofull has aligned access   [ state_test_offload.F90(157,7) ]
-      remark #15388: vectorization support: reference drhods has aligned access   [ state_test_offload.F90(158,7) ]
-      remark #15412: vectorization support: streaming store was generated for tq   [ state_test_offload.F90(143,7) ]
-      remark #15412: vectorization support: streaming store was generated for tq   [ state_test_offload.F90(144,7) ]
-      remark #15412: vectorization support: streaming store was generated for sq   [ state_test_offload.F90(145,7) ]
-      remark #15412: vectorization support: streaming store was generated for sq   [ state_test_offload.F90(146,7) ]
-      remark #15412: vectorization support: streaming store was generated for sq   [ state_test_offload.F90(147,7) ]
-      remark #15412: vectorization support: streaming store was generated for sqr   [ state_test_offload.F90(148,7) ]
-      remark #15412: vectorization support: streaming store was generated for rhoout   [ state_test_offload.F90(155,7) ]
-      remark #15412: vectorization support: streaming store was generated for drhodt   [ state_test_offload.F90(156,7) ]
-      remark #15412: vectorization support: streaming store was generated for rhofull   [ state_test_offload.F90(157,7) ]
-      remark #15412: vectorization support: streaming store was generated for drhods   [ state_test_offload.F90(158,7) ]
+   LOOP BEGIN at state_test_offload.F90(179,7)
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(181,7) ]
+      remark #15388: vectorization support: reference tempk has aligned access   [ state_test_offload.F90(181,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(182,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(182,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(183,7) ]
+      remark #15388: vectorization support: reference saltk has aligned access   [ state_test_offload.F90(183,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(184,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(184,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(185,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(185,7) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(186,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(186,7) ]
+      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(193,7) ]
+      remark #15388: vectorization support: reference drhodt has aligned access   [ state_test_offload.F90(194,7) ]
+      remark #15388: vectorization support: reference rhofull has aligned access   [ state_test_offload.F90(195,7) ]
+      remark #15388: vectorization support: reference drhods has aligned access   [ state_test_offload.F90(196,7) ]
+      remark #15412: vectorization support: streaming store was generated for tq   [ state_test_offload.F90(181,7) ]
+      remark #15412: vectorization support: streaming store was generated for tq   [ state_test_offload.F90(182,7) ]
+      remark #15412: vectorization support: streaming store was generated for sq   [ state_test_offload.F90(183,7) ]
+      remark #15412: vectorization support: streaming store was generated for sq   [ state_test_offload.F90(184,7) ]
+      remark #15412: vectorization support: streaming store was generated for sq   [ state_test_offload.F90(185,7) ]
+      remark #15412: vectorization support: streaming store was generated for sqr   [ state_test_offload.F90(186,7) ]
+      remark #15412: vectorization support: streaming store was generated for rhoout   [ state_test_offload.F90(193,7) ]
+      remark #15412: vectorization support: streaming store was generated for drhodt   [ state_test_offload.F90(194,7) ]
+      remark #15412: vectorization support: streaming store was generated for rhofull   [ state_test_offload.F90(195,7) ]
+      remark #15412: vectorization support: streaming store was generated for drhods   [ state_test_offload.F90(196,7) ]
       remark #15301: SIMD LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 6 
+      remark #15449: unmasked aligned unit stride stores: 10 
       remark #15467: unmasked aligned streaming stores: 10 
       remark #15475: --- begin vector loop cost summary ---
       remark #15476: scalar loop cost: 101 
-      remark #15477: vector loop cost: 9.250 
-      remark #15478: estimated potential speedup: 10.910 
-      remark #15479: lightweight vector operations: 41 
+      remark #15477: vector loop cost: 36.000 
+      remark #15478: estimated potential speedup: 2.800 
+      remark #15479: lightweight vector operations: 40 
+      remark #15480: medium-overhead vector operations: 1 
       remark #15488: --- end vector loop cost summary ---
       remark #25456: Number of Array Refs Scalar Replaced In Loop: 5
-      remark #25018: Total number of lines prefetched=4
-      remark #25019: Number of spatial prefetches=4, dist=8
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(143,21) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(145,21) ]
-      remark #25015: Estimate of max trip count of loop=1000
+      remark #25015: Estimate of max trip count of loop=1440
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(180,7)
+LOOP BEGIN at state_test_offload.F90(223,7)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at state_test_offload.F90(184,7)
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(186,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(186,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(186,7) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(186,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(186,7) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(186,7) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(195,11) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(195,11) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(195,11) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(195,11) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(195,11) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(195,11) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(195,11) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(195,11) ]
-      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(195,11) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(195,11) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(195,11) ]
-      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(198,11) ]
-      remark #15388: vectorization support: reference rhofull has aligned access   [ state_test_offload.F90(202,11) ]
-      remark #15388: vectorization support: reference drhodt has aligned access   [ state_test_offload.F90(216,11) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(216,11) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(216,11) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(216,11) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(216,11) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(216,11) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(216,11) ]
-      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(216,11) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(216,11) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(216,11) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(216,11) ]
-      remark #15388: vectorization support: reference drhods has aligned access   [ state_test_offload.F90(227,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(227,10) ]
-      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(227,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(227,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(227,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(227,10) ]
-      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(227,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(227,10) ]
-      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(227,10) ]
-      remark #15412: vectorization support: streaming store was generated for rhoout   [ state_test_offload.F90(198,11) ]
-      remark #15412: vectorization support: streaming store was generated for rhofull   [ state_test_offload.F90(202,11) ]
-      remark #15412: vectorization support: streaming store was generated for drhodt   [ state_test_offload.F90(216,11) ]
-      remark #15412: vectorization support: streaming store was generated for drhods   [ state_test_offload.F90(227,10) ]
+   LOOP BEGIN at state_test_offload.F90(227,7)
+   <Predicate Optimized v7>
+      remark #25422: Invariant Condition at line 241 hoisted out of this loop
+      remark #25422: Invariant Condition at line 245 hoisted out of this loop
+      remark #25422: Invariant Condition at line 249 hoisted out of this loop
+      remark #25422: Invariant Condition at line 263 hoisted out of this loop
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(242,11) ]
+      remark #15388: vectorization support: reference rhofull has aligned access   [ state_test_offload.F90(246,11) ]
+      remark #15388: vectorization support: reference drhodt has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference drhods has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15412: vectorization support: streaming store was generated for rhoout   [ state_test_offload.F90(242,11) ]
+      remark #15412: vectorization support: streaming store was generated for rhofull   [ state_test_offload.F90(246,11) ]
+      remark #15412: vectorization support: streaming store was generated for drhodt   [ state_test_offload.F90(260,11) ]
+      remark #15412: vectorization support: streaming store was generated for drhods   [ state_test_offload.F90(271,10) ]
       remark #15301: SIMD LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 12 
+      remark #15449: unmasked aligned unit stride stores: 4 
       remark #15467: unmasked aligned streaming stores: 4 
       remark #15475: --- begin vector loop cost summary ---
       remark #15476: scalar loop cost: 258 
-      remark #15477: vector loop cost: 43.620 
-      remark #15478: estimated potential speedup: 5.910 
-      remark #15479: lightweight vector operations: 178 
+      remark #15477: vector loop cost: 127.500 
+      remark #15478: estimated potential speedup: 2.020 
+      remark #15479: lightweight vector operations: 177 
+      remark #15480: medium-overhead vector operations: 1 
       remark #15488: --- end vector loop cost summary ---
-      remark #25018: Total number of lines prefetched=6
-      remark #25019: Number of spatial prefetches=6, dist=8
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(186,30) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(187,41) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(193,12) ]
-      remark #25015: Estimate of max trip count of loop=1000
+      remark #25015: Estimate of max trip count of loop=1440
+   LOOP END
+
+   LOOP BEGIN at state_test_offload.F90(227,7)
+   <Predicate Optimized v8>
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(242,11) ]
+      remark #15388: vectorization support: reference rhofull has aligned access   [ state_test_offload.F90(246,11) ]
+      remark #15388: vectorization support: reference drhodt has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15412: vectorization support: streaming store was generated for rhoout   [ state_test_offload.F90(242,11) ]
+      remark #15412: vectorization support: streaming store was generated for rhofull   [ state_test_offload.F90(246,11) ]
+      remark #15412: vectorization support: streaming store was generated for drhodt   [ state_test_offload.F90(260,11) ]
+      remark #15301: SIMD LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 10 
+      remark #15449: unmasked aligned unit stride stores: 3 
+      remark #15467: unmasked aligned streaming stores: 3 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 201 
+      remark #15477: vector loop cost: 99.500 
+      remark #15478: estimated potential speedup: 2.010 
+      remark #15479: lightweight vector operations: 134 
+      remark #15480: medium-overhead vector operations: 1 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=1440
+   LOOP END
+
+   LOOP BEGIN at state_test_offload.F90(227,7)
+   <Predicate Optimized v9>
+      remark #25422: Invariant Condition at line 263 hoisted out of this loop
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(242,11) ]
+      remark #15388: vectorization support: reference rhofull has aligned access   [ state_test_offload.F90(246,11) ]
+      remark #15388: vectorization support: reference drhods has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15412: vectorization support: streaming store was generated for rhoout   [ state_test_offload.F90(242,11) ]
+      remark #15412: vectorization support: streaming store was generated for rhofull   [ state_test_offload.F90(246,11) ]
+      remark #15412: vectorization support: streaming store was generated for drhods   [ state_test_offload.F90(271,10) ]
+      remark #15301: SIMD LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 7 
+      remark #15449: unmasked aligned unit stride stores: 3 
+      remark #15467: unmasked aligned streaming stores: 3 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 183 
+      remark #15477: vector loop cost: 93.500 
+      remark #15478: estimated potential speedup: 1.950 
+      remark #15479: lightweight vector operations: 124 
+      remark #15480: medium-overhead vector operations: 1 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=1440
+   LOOP END
+
+   LOOP BEGIN at state_test_offload.F90(227,7)
+   <Predicate Optimized v10>
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(242,11) ]
+      remark #15388: vectorization support: reference rhofull has aligned access   [ state_test_offload.F90(246,11) ]
+      remark #15412: vectorization support: streaming store was generated for rhoout   [ state_test_offload.F90(242,11) ]
+      remark #15412: vectorization support: streaming store was generated for rhofull   [ state_test_offload.F90(246,11) ]
+      remark #15301: SIMD LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 5 
+      remark #15449: unmasked aligned unit stride stores: 2 
+      remark #15467: unmasked aligned streaming stores: 2 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 127 
+      remark #15477: vector loop cost: 65.500 
+      remark #15478: estimated potential speedup: 1.930 
+      remark #15479: lightweight vector operations: 81 
+      remark #15480: medium-overhead vector operations: 1 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=1440
+   LOOP END
+
+   LOOP BEGIN at state_test_offload.F90(227,7)
+   <Predicate Optimized v13>
+      remark #25422: Invariant Condition at line 249 hoisted out of this loop
+      remark #25422: Invariant Condition at line 263 hoisted out of this loop
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(242,11) ]
+      remark #15388: vectorization support: reference drhodt has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference drhods has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15412: vectorization support: streaming store was generated for rhoout   [ state_test_offload.F90(242,11) ]
+      remark #15412: vectorization support: streaming store was generated for drhodt   [ state_test_offload.F90(260,11) ]
+      remark #15412: vectorization support: streaming store was generated for drhods   [ state_test_offload.F90(271,10) ]
+      remark #15301: SIMD LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 12 
+      remark #15449: unmasked aligned unit stride stores: 3 
+      remark #15467: unmasked aligned streaming stores: 3 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 252 
+      remark #15477: vector loop cost: 124.500 
+      remark #15478: estimated potential speedup: 2.020 
+      remark #15479: lightweight vector operations: 172 
+      remark #15480: medium-overhead vector operations: 1 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=1440
+   LOOP END
+
+   LOOP BEGIN at state_test_offload.F90(227,7)
+   <Predicate Optimized v14>
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(242,11) ]
+      remark #15388: vectorization support: reference drhodt has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15412: vectorization support: streaming store was generated for rhoout   [ state_test_offload.F90(242,11) ]
+      remark #15412: vectorization support: streaming store was generated for drhodt   [ state_test_offload.F90(260,11) ]
+      remark #15301: SIMD LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 10 
+      remark #15449: unmasked aligned unit stride stores: 2 
+      remark #15467: unmasked aligned streaming stores: 2 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 195 
+      remark #15477: vector loop cost: 96.500 
+      remark #15478: estimated potential speedup: 2.020 
+      remark #15479: lightweight vector operations: 129 
+      remark #15480: medium-overhead vector operations: 1 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=1440
+   LOOP END
+
+   LOOP BEGIN at state_test_offload.F90(227,7)
+   <Predicate Optimized v15>
+      remark #25422: Invariant Condition at line 263 hoisted out of this loop
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(242,11) ]
+      remark #15388: vectorization support: reference drhods has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15412: vectorization support: streaming store was generated for rhoout   [ state_test_offload.F90(242,11) ]
+      remark #15412: vectorization support: streaming store was generated for drhods   [ state_test_offload.F90(271,10) ]
+      remark #15301: SIMD LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 7 
+      remark #15449: unmasked aligned unit stride stores: 2 
+      remark #15467: unmasked aligned streaming stores: 2 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 177 
+      remark #15477: vector loop cost: 90.500 
+      remark #15478: estimated potential speedup: 1.950 
+      remark #15479: lightweight vector operations: 119 
+      remark #15480: medium-overhead vector operations: 1 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=1440
+   LOOP END
+
+   LOOP BEGIN at state_test_offload.F90(227,7)
+   <Predicate Optimized v16>
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(242,11) ]
+      remark #15412: vectorization support: streaming store was generated for rhoout   [ state_test_offload.F90(242,11) ]
+      remark #15301: SIMD LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 5 
+      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15467: unmasked aligned streaming stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 120 
+      remark #15477: vector loop cost: 62.500 
+      remark #15478: estimated potential speedup: 1.910 
+      remark #15479: lightweight vector operations: 76 
+      remark #15480: medium-overhead vector operations: 1 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=1440
+   LOOP END
+
+   LOOP BEGIN at state_test_offload.F90(227,7)
+   <Predicate Optimized v2>
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(230,7) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(239,11) ]
+      remark #15388: vectorization support: reference rhofull has aligned access   [ state_test_offload.F90(246,11) ]
+      remark #15388: vectorization support: reference drhodt has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(260,11) ]
+      remark #15388: vectorization support: reference drhods has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference sq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference sqr has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15388: vectorization support: reference tq has aligned access   [ state_test_offload.F90(271,10) ]
+      remark #15301: SIMD LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 12 
+      remark #15449: unmasked aligned unit stride stores: 3 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 322 
+      remark #15477: vector loop cost: 126.000 
+      remark #15478: estimated potential speedup: 2.550 
+      remark #15479: lightweight vector operations: 175 
+      remark #15480: medium-overhead vector operations: 1 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=1440
    LOOP END
 LOOP END
 
     Report from: Code generation optimizations [cg]
 
-state_test_offload.F90(122,1):remark #34026: call to memcpy implemented as a call to optimized library version
-state_test_offload.F90(122,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (64, 0), and destination (alignment, offset): (64, 0)
+state_test_offload.F90(119,7):remark #34000: call to memset implemented inline with stores with proven (alignment, offset): (64, 0)
 ===========================================================================
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING FOOTNOTES:
+
+<1> The compiler's heuristics predict that it is not profitable to inline the
+    call.  Add "!DIR$ATTRIBUTES FORCEINLINE" to the declaration of the called 
+    subprogram, or add "!DIR$ FORCEINLINE" before the call site.
+

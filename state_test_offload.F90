@@ -4,12 +4,43 @@ program state_dummy
       use constants
       use omp_lib
 
-implicit none
+      implicit none
 
       integer (int_kind), parameter :: &
-      nx_block = 2880, & 
+      nx_block = 2880, &
       ny_block = 2619, &
       km = 60
+
+      real (r8), dimension(nx_block,ny_block) :: TMIX,TEMP1,TEMP2,TEMP3
+ 
+      real (r8), dimension(nx_block,ny_block) :: DRDT,DRDS
+
+      integer (int_kind) kk, this_block
+
+      this_block = 1
+      kk = 1
+
+      call random_number(TMIX)  
+      call random_number(TEMP1)
+      call random_number(TEMP2)
+      call random_number(TEMP3)
+
+      call state (kk, kk, TMIX, TMIX, this_block, RHOOUT=DRDT,RHOFULL=DRDS,DRHODT=TEMP1,DRHODS=TEMP2)  
+      
+
+contains
+
+subroutine state(k, kk, TEMPK, SALTK, this_block, RHOOUT, RHOFULL, DRHODT, DRHODS)
+
+
+
+
+      integer (int_kind), intent(in) :: this_block 
+
+      !integer (int_kind), parameter :: &
+      !nx_block = 2880, & 
+      !ny_block = 2619, &
+      !km = 60
 
       integer (int_kind) i,j  
 
@@ -47,20 +78,22 @@ implicit none
       mwjfdp3s0t1 =  -1.27934137e-17_r8
  
 
-      integer (int_kind) :: & !,intent(in) :: &
+      integer (int_kind) ,intent(in) :: &
       k,                    &! depth level index
       kk                     ! level to which water is adiabatically displaced
 
-      real (r8), dimension(nx_block,ny_block) :: & !, optional, intent(out) :: & 
+      real (r8), dimension(nx_block,ny_block) ,optional, intent(out) :: & 
       RHOOUT,  &! perturbation density of water
       RHOFULL, &! full density of water
       DRHODT,  &! derivative of density with respect to temperature
       DRHODS    ! derivative of density with respect to salinity
 
 
-      real (r8), dimension(nx_block,ny_block) :: & !,intent(in) :: & 
+      real (r8), dimension(nx_block,ny_block) ,intent(in) :: & 
       TEMPK,             &! temperature at level k
-      SALTK,             &! salinity    at level k
+      SALTK               ! salinity    at level k
+      
+      real (r8), dimension(nx_block,ny_block) :: & 
       TQ,SQ,             &! adjusted T,S
       SQR,DENOMK,        &
       WORK1, WORK2, WORK3, WORK4  
@@ -89,9 +122,6 @@ implicit none
 
       call random_number(TQ)
       call random_number(SQ)
-      call random_number(TEMPK)
-      call random_number(SALTK)
-      kk=1
  
       p   = c10*pressz(kk)
 
@@ -121,6 +151,16 @@ implicit none
 
       !dir$ offload begin target(mic:0)
 
+      call omp_set_num_threads(180)
+
+      !dir$ assume_aligned SALTK: 64
+      !dir$ assume_aligned RHOOUT: 64
+      !dir$ assume_aligned RHOFULL: 64
+      !dir$ assume_aligned DRHODT: 64 
+      !dir$ assume_aligned RHOFULL: 64
+      !dir$ assume_aligned DRHODS: 64
+      !dir$ assume_aligned TEMPK: 64
+
       !$omp parallel default(none)shared(TQ,TEMPK,SQ,SALTK,WORK1,WORK2,WORK3,WORK4) &
       !$omp shared(SQR,DENOMK,RHOOUT,RHOFULL,DRHODS,DRHODT)&
       !$omp firstprivate(tmax,tmin,smax,smin,kk) &
@@ -131,8 +171,6 @@ implicit none
       !$omp firstprivate(mwjfdensqt0,mwjfdensqt2) &
       !$omp private(TWORK1,TWORK2,TWORK3,TWORK4)
 
-      call omp_set_num_threads(16)  
-      
       !$omp do schedule(static)  
       do j=1,ny_block
       !dir$ ivdep
@@ -159,13 +197,18 @@ implicit none
 
       enddo
       enddo
-      !$omp end do nowait
-
-      !$omp end parallel          
-
+      !$omp end do 
+      !$omp end parallel 
 
       start_time=omp_get_wtime()
 
+      !dir$ assume_aligned SALTK: 64
+      !dir$ assume_aligned RHOOUT: 64
+      !dir$ assume_aligned RHOFULL: 64
+      !dir$ assume_aligned DRHODT: 64 
+      !dir$ assume_aligned RHOFULL: 64
+      !dir$ assume_aligned DRHODS: 64
+      !dir$ assume_aligned TEMPK: 64 
       !$omp parallel default(none)shared(TQ,TEMPK,SQ,SALTK,WORK1,WORK2,WORK3,WORK4) &
       !$omp shared(SQR,DENOMK,RHOOUT,RHOFULL,DRHODS,DRHODT)&
       !$omp firstprivate(tmax,tmin,smax,smin,kk) &
@@ -176,12 +219,13 @@ implicit none
       !$omp firstprivate(mwjfdensqt0,mwjfdensqt2) & 
       !$omp private(TWORK1,TWORK2,TWORK3,TWORK4,TDENOMK)
       
-      !$omp do schedule(static) 
+      !$omp do schedule(static)  
       do j=1,ny_block
       !dir$ simd 
       !dir$ ivdep
       !dir$ vector nontemporal
       do i=1,nx_block 
+
 
       TWORK1 = mwjfnums0t0 + TQ(i,j) * (mwjfnums0t1 + TQ(i,j) * (mwjfnums0t2 + &
               mwjfnums0t3 * TQ(i,j))) + SQ(i,j) * (mwjfnums1t0 +              &
@@ -194,15 +238,15 @@ implicit none
 
           TDENOMK = c1/TWORK2
 
-      !if (present(RHOOUT)) then
+      if (present(RHOOUT)) then
           RHOOUT(i,j)  = TWORK1 * TDENOMK
-      !endif
+      endif
 
-      !if (present(RHOFULL)) then
+      if (present(RHOFULL)) then
           RHOFULL(i,j) = TWORK1 * TDENOMK
-      !endif
+      endif
 
-      !if (present(DRHODT)) then
+      if (present(DRHODT)) then
          TWORK3 = &! dP_1/dT
                  mwjfnums0t1 + TQ(i,j) * (c2*mwjfnums0t2 +    &
                  c3*mwjfnums0t3 * TQ(i,j)) + mwjfnums1t1 * SQ(i,j)
@@ -214,9 +258,9 @@ implicit none
                  TQ(i,j) *  c4*mwjfdens0t4))
         
           DRHODT(i,j) = (TWORK3 - TWORK1 * TDENOMK * TWORK4)* TDENOMK
-      !endif
+      endif
 
-      !if (present(DRHODS)) then
+      if (present(DRHODS)) then
          TWORK3 = &! dP_1/dS
                  mwjfnums1t0 + mwjfnums1t1 * TQ(i,j) + c2*mwjfnums2t0 * SQ(i,j)
 
@@ -225,16 +269,15 @@ implicit none
                  c1p5 * SQR(i,j) *(mwjfdensqt0 + TQ(i,j) * TQ(i,j) * mwjfdensqt2)
 
          DRHODS(i,j) = ( TWORK3 - TWORK1 * TDENOMK * TWORK4 ) * TDENOMK * c1000
-     !endif  
+     endif  
        enddo
        enddo
        !$omp end do
 
-       !$omp end parallel         
+      !$omp end parallel         
       end_time = omp_get_wtime()
 
-      !dir$ end offload 
-        
+     !dir$ end offload   
  
       print *, end_time - start_time
 
@@ -248,6 +291,6 @@ implicit none
       print *, sum(RHOFULL)
       print *, sum(DENOMK)
        
+end subroutine state
 
 end program state_dummy
-
