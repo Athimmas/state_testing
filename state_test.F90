@@ -44,7 +44,7 @@ subroutine state(k, kk, TEMPK, SALTK, this_block, RHOOUT, RHOFULL, DRHODT, DRHOD
 
       integer (int_kind) i,j  
 
-      real (r8) start_time, end_time
+      real (r8) start_time, end_time,first_time
 
       real (r8), parameter ::                  &
       mwjfnp0s0t0 =   9.99843699e+2_r8 * p001, &
@@ -151,6 +151,7 @@ subroutine state(k, kk, TEMPK, SALTK, this_block, RHOOUT, RHOFULL, DRHODT, DRHOD
 
       call omp_set_num_threads(16)
 
+      first_time = omp_get_wtime() 
       !dir$ assume_aligned SALTK: 64
       !dir$ assume_aligned RHOOUT: 64
       !dir$ assume_aligned RHOFULL: 64
@@ -173,7 +174,7 @@ subroutine state(k, kk, TEMPK, SALTK, this_block, RHOOUT, RHOFULL, DRHODT, DRHOD
       do j=1,ny_block
       !dir$ ivdep
       !dir$ simd
-      !dir$ vector nontemporal 
+      !dir$ vector 
       do i=1,nx_block
 
       TQ(i,j) = min(TEMPK(i,j),tmax(kk))
@@ -221,7 +222,7 @@ subroutine state(k, kk, TEMPK, SALTK, this_block, RHOOUT, RHOFULL, DRHODT, DRHOD
       do j=1,ny_block
       !dir$ simd 
       !dir$ ivdep
-      !dir$ vector nontemporal
+      !dir$ vector 
       do i=1,nx_block 
 
 
@@ -274,8 +275,10 @@ subroutine state(k, kk, TEMPK, SALTK, this_block, RHOOUT, RHOFULL, DRHODT, DRHOD
 
       !$omp end parallel         
       end_time = omp_get_wtime()
+
  
-      print *, end_time - start_time
+      print *,"loop time is", end_time - start_time
+      print *,"total time is",end_time - first_time
 
       print *, sum(WORK1)
       print *, sum(WORK2)
