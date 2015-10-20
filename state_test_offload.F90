@@ -1,3 +1,5 @@
+!USE buffersize 12M
+
 program state_dummy
 
       use kinds_mod
@@ -7,13 +9,17 @@ program state_dummy
       implicit none
 
       integer (int_kind), parameter :: &
-      nx_block = 2880, &
-      ny_block = 2619, &
+      nx_block = 324, &
+      ny_block = 388, &
       km = 60
 
-      real (r8), dimension(nx_block,ny_block) :: TMIX,TEMP1,TEMP2,TEMP3
+      
+
+      real (r8), dimension(nx_block,ny_block,km) :: TMIX,TMIX1,TMIX2,TMIX3
  
-      real (r8), dimension(nx_block,ny_block) :: DRDT,DRDS
+      real (r8), dimension(nx_block,ny_block,km) :: DRDT,DRDS
+
+      real (r8), dimension(2880,2619) :: TTMIX,TEMPDRDT,TEMPDRDS,TEMPTMIX1,TEMPTMIX2
 
       integer (int_kind) kk, this_block,counter
 
@@ -21,13 +27,28 @@ program state_dummy
       kk = 1
 
       call random_number(TMIX)  
-      call random_number(TEMP1)
-      call random_number(TEMP2)
-      call random_number(TEMP3)
+      call random_number(TMIX1)
+      call random_number(TMIX2)
+      call random_number(TMIX3)
+
+      TTMIX = RESHAPE(TMIX, (/2880, 2619/))
+      TEMPDRDT = RESHAPE(DRDT,(/2880,2619/))
+      TEMPDRDS = RESHAPE(DRDS,(/2880,2619/))
+      TEMPTMIX1 = RESHAPE(TMIX1,(/2880,2619/)) 
+      TEMPTMIX2 = RESHAPE(TMIX2,(/2880,2619/))
 
       do counter=1,10 
-      call state (kk, kk, TMIX, TMIX, this_block, RHOOUT=DRDT,RHOFULL=DRDS,DRHODT=TEMP1,DRHODS=TEMP2)  
-      enddo             
+      call state (kk, kk, TTMIX, TTMIX, this_block, RHOOUT=TEMPDRDT,RHOFULL=TEMPDRDS,DRHODT=TEMPTMIX1,DRHODS=TEMPTMIX2)  
+      enddo     
+
+      TMIX = RESHAPE( TTMIX, (/324, 388,60/) )
+      DRDT = RESHAPE( TEMPDRDT, (/324,388,60/) )
+      DRDS = RESHAPE( TEMPDRDS, (/324,388,60/) )
+      TMIX1 = RESHAPE( TEMPTMIX1, (/324,388,60/) )
+      TMIX2 = RESHAPE( TEMPTMIX2, (/324,388,60/) )
+
+      print *,"sum of DRDT is",sum(DRDT)
+                
 
 contains
 
@@ -83,18 +104,18 @@ subroutine state(k, kk, TEMPK, SALTK, this_block, RHOOUT, RHOFULL, DRHODT, DRHOD
       k,                    &! depth level index
       kk                     ! level to which water is adiabatically displaced
 
-      real (r8), dimension(nx_block,ny_block) ,optional, intent(out) :: & 
+      real (r8), dimension(2880,2619) ,optional, intent(out) :: & 
       RHOOUT,  &! perturbation density of water
       RHOFULL, &! full density of water
       DRHODT,  &! derivative of density with respect to temperature
       DRHODS    ! derivative of density with respect to salinity
 
 
-      real (r8), dimension(nx_block,ny_block) ,intent(in) :: & 
+      real (r8), dimension(2880,2619) ,intent(in) :: & 
       TEMPK,             &! temperature at level k
       SALTK               ! salinity    at level k
       
-      real (r8), dimension(nx_block,ny_block) :: & 
+      real (r8), dimension(2880,2619) :: & 
       TQ,SQ,             &! adjusted T,S
       SQR,DENOMK,        &
       WORK1, WORK2, WORK3, WORK4  
@@ -152,8 +173,6 @@ subroutine state(k, kk, TEMPK, SALTK, this_block, RHOOUT, RHOFULL, DRHODT, DRHOD
 
       !dir$ offload begin target(mic:0)
 
-      !call omp_set_num_threads(8)
- 
       first_time = omp_get_wtime() 
       !dir$ assume_aligned SALTK: 64
       !dir$ assume_aligned RHOOUT: 64
@@ -174,11 +193,11 @@ subroutine state(k, kk, TEMPK, SALTK, this_block, RHOOUT, RHOFULL, DRHODT, DRHOD
       !$omp private(TWORK1,TWORK2,TWORK3,TWORK4,TDENOMK)
 
       !$omp do schedule(static)  
-      do j=1,ny_block
+      do j=1,2619
       !dir$ ivdep
       !dir$ simd
-      !dir$ vector nontemporal 
-      do i=1,nx_block
+      !dir$ vector nontemporal
+      do i=1,2880
 
       TQ(i,j) = min(TEMPK(i,j),tmax(kk))
       TQ(i,j) = max(TQ(i,j),tmin(kk))
@@ -249,7 +268,6 @@ subroutine state(k, kk, TEMPK, SALTK, this_block, RHOOUT, RHOFULL, DRHODT, DRHOD
       print *, sum(DRHODT)
       print *, sum(RHOOUT)
       print *, sum(RHOFULL)
-      print *, sum(DENOMK)
        
 end subroutine state
 
