@@ -31,7 +31,7 @@ INLINE REPORT: (STATE_DUMMY) [1/2=50.0%] state_test_offload.F90(3,9)
   -> EXTERN: (38,12) for_random_number
   -> EXTERN: (39,12) for_random_number
   -> EXTERN: (40,12) for_random_number
-  -> (50,12) STATE_DUMMY:STATE (isz = 765) (sz = 788)
+  -> (50,12) STATE_DUMMY:STATE (isz = 864) (sz = 887)
      [[ Unable to inline callsite  <1>]]
   -> EXTERN: (59,7) for_write_seq_lis_xmit
   -> EXTERN: (59,7) for_write_seq_lis
@@ -594,30 +594,30 @@ Begin optimization report for: STATE_DUMMY:STATE
     Report from: Interprocedural optimizations [ipo]
 
 INLINE REPORT: (STATE_DUMMY:STATE) [2/2=100.0%] state_test_offload.F90(64,12)
-  -> EXTERN: (155,12) for_random_number
-  -> EXTERN: (164,41) __powr8i4
-  -> EXTERN: (190,20) omp_get_wtime
-  -> EXTERN: (273,18) omp_get_wtime
-  -> EXTERN: (277,7) for_write_seq_lis_xmit
-  -> EXTERN: (277,7) for_write_seq_lis
-  -> EXTERN: (279,7) for_write_seq_lis
-  -> EXTERN: (280,7) for_write_seq_lis
-  -> EXTERN: (281,7) for_write_seq_lis
-  -> EXTERN: (282,7) for_write_seq_lis
-  -> EXTERN: (283,7) for_write_seq_lis
-  -> EXTERN: (284,7) for_write_seq_lis
-  -> EXTERN: (285,7) for_write_seq_lis
-  -> EXTERN: (286,7) for_write_seq_lis
+  -> EXTERN: (158,12) for_random_number
+  -> EXTERN: (167,41) __powr8i4
+  -> EXTERN: (193,20) omp_get_wtime
+  -> EXTERN: (284,18) omp_get_wtime
+  -> EXTERN: (288,7) for_write_seq_lis_xmit
+  -> EXTERN: (288,7) for_write_seq_lis
+  -> EXTERN: (290,7) for_write_seq_lis
+  -> EXTERN: (291,7) for_write_seq_lis
+  -> EXTERN: (292,7) for_write_seq_lis
+  -> EXTERN: (293,7) for_write_seq_lis
+  -> EXTERN: (294,7) for_write_seq_lis
+  -> EXTERN: (295,7) for_write_seq_lis
+  -> EXTERN: (296,7) for_write_seq_lis
+  -> EXTERN: (297,7) for_write_seq_lis
 
 
     Report from: OpenMP optimizations [openmp]
 
-OpenMP Construct at state_test_offload.F90(200,7)
+OpenMP Construct at state_test_offload.F90(203,7)
    remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
 
     Report from: Offload optimizations [offload]
 
-OFFLOAD:state(187,1):  Offload to target MIC <expr>
+OFFLOAD:state(190,1):  Offload to target MIC <expr>
  Evaluate length/align/alloc_if/free_if/alloc/into expressions
  Data sent from host to target
        first_time, scalar size 8 bytes
@@ -627,20 +627,20 @@ OFFLOAD:state(187,1):  Offload to target MIC <expr>
        drhodt, pointer to data with element count specified in pragma
        drhods, pointer to data with element count specified in pragma
        tempk, pointer to data with element count specified in pragma
-       __offload_stack_ptr_state$WORK1$_6_V$b1.0, pointer to array reference expression with base
-       __offload_stack_ptr_state$WORK2$_6_V$b0.0, pointer to array reference expression with base
-       __offload_stack_ptr_state$WORK3$_6_V$af.0, pointer to array reference expression with base
-       __offload_stack_ptr_state$WORK4$_6_V$ae.0, pointer to array reference expression with base
+       __offload_stack_ptr_state$WORK1$_6_V$b7.0, pointer to array reference expression with base
+       __offload_stack_ptr_state$WORK2$_6_V$b6.0, pointer to array reference expression with base
+       __offload_stack_ptr_state$WORK3$_6_V$b5.0, pointer to array reference expression with base
+       __offload_stack_ptr_state$WORK4$_6_V$b4.0, pointer to array reference expression with base
        __offload_stack_ptr_state$MWJFNUMS0T0$_6_V$93.0, pointer to array reference expression with base
        __offload_stack_ptr_state$MWJFNUMS0T2$_6_V$92.0, pointer to array reference expression with base
        __offload_stack_ptr_state$MWJFNUMS1T0$_6_V$91.0, pointer to array reference expression with base
        __offload_stack_ptr_state$MWJFDENS0T0$_6_V$90.0, pointer to array reference expression with base
        __offload_stack_ptr_state$MWJFDENS0T1$_6_V$8f.0, pointer to array reference expression with base
        __offload_stack_ptr_state$MWJFDENS0T3$_6_V$8e.0, pointer to array reference expression with base
-       __offload_stack_ptr_state$TMAX$_6_V$a4.0, pointer to array reference expression with base
-       __offload_stack_ptr_state$TMIN$_6_V$a5.0, pointer to array reference expression with base
-       __offload_stack_ptr_state$SMAX$_6_V$a2.0, pointer to array reference expression with base
-       __offload_stack_ptr_state$SMIN$_6_V$a3.0, pointer to array reference expression with base
+       __offload_stack_ptr_state$TMAX$_6_V$aa.0, pointer to array reference expression with base
+       __offload_stack_ptr_state$TMIN$_6_V$ab.0, pointer to array reference expression with base
+       __offload_stack_ptr_state$SMAX$_6_V$a8.0, pointer to array reference expression with base
+       __offload_stack_ptr_state$SMIN$_6_V$a9.0, pointer to array reference expression with base
        kk, pointer to data with element count specified in pragma
        mwjfnums0t1, scalar size 8 bytes
        mwjfnums0t3, scalar size 8 bytes
@@ -663,6 +663,12 @@ OFFLOAD:state(187,1):  Offload to target MIC <expr>
        sqr, scalar size 8 bytes
        j, scalar size 4 bytes
        i, scalar size 4 bytes
+       mwjfnums0t0_temp, scalar size 8 bytes
+       mwjfnums0t2_temp, scalar size 8 bytes
+       mwjfnums1t0_temp, scalar size 8 bytes
+       mwjfdens0t0_temp, scalar size 8 bytes
+       mwjfdens0t1_temp, scalar size 8 bytes
+       mwjfdens0t3_temp, scalar size 8 bytes
        end_time, scalar size 8 bytes
  Data received by host from target
        first_time, scalar size 8 bytes
@@ -705,13 +711,19 @@ OFFLOAD:state(187,1):  Offload to target MIC <expr>
        sqr, scalar size 8 bytes
        j, scalar size 4 bytes
        i, scalar size 4 bytes
+       mwjfnums0t0_temp, scalar size 8 bytes
+       mwjfnums0t2_temp, scalar size 8 bytes
+       mwjfnums1t0_temp, scalar size 8 bytes
+       mwjfdens0t0_temp, scalar size 8 bytes
+       mwjfdens0t1_temp, scalar size 8 bytes
+       mwjfdens0t3_temp, scalar size 8 bytes
        end_time, scalar size 8 bytes
 
 
     Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
 
 
-LOOP BEGIN at state_test_offload.F90(150,7)
+LOOP BEGIN at state_test_offload.F90(153,7)
    remark #15388: vectorization support: reference tmin has aligned access
    remark #15399: vectorization support: unroll factor set to 2
    remark #15300: LOOP WAS VECTORIZED
@@ -726,7 +738,7 @@ LOOP BEGIN at state_test_offload.F90(150,7)
    remark #25015: Estimate of max trip count of loop=15
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(151,7)
+LOOP BEGIN at state_test_offload.F90(154,7)
    remark #15388: vectorization support: reference tmax has aligned access
    remark #15399: vectorization support: unroll factor set to 2
    remark #15300: LOOP WAS VECTORIZED
@@ -741,12 +753,12 @@ LOOP BEGIN at state_test_offload.F90(151,7)
    remark #25015: Estimate of max trip count of loop=15
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(152,7)
+LOOP BEGIN at state_test_offload.F90(155,7)
    remark #25408: memset generated
    remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(153,7)
+LOOP BEGIN at state_test_offload.F90(156,7)
    remark #15388: vectorization support: reference smax has aligned access
    remark #15399: vectorization support: unroll factor set to 2
    remark #15300: LOOP WAS VECTORIZED
@@ -761,7 +773,7 @@ LOOP BEGIN at state_test_offload.F90(153,7)
    remark #25015: Estimate of max trip count of loop=15
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(155,12)
+LOOP BEGIN at state_test_offload.F90(158,12)
    remark #15388: vectorization support: reference pressz has aligned access
    remark #15300: LOOP WAS VECTORIZED
    remark #15449: unmasked aligned unit stride stores: 1 
@@ -777,19 +789,19 @@ LOOP BEGIN at state_test_offload.F90(155,12)
    remark #25015: Estimate of max trip count of loop=30
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(157,7)
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ state_test_offload.F90(167,7) ]
+LOOP BEGIN at state_test_offload.F90(160,7)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ state_test_offload.F90(170,7) ]
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at state_test_offload.F90(158,7)
-      remark #25084: Preprocess Loopnests: Moving Out Store    [ state_test_offload.F90(166,7) ]
-      remark #15388: vectorization support: reference k_2darray has aligned access   [ state_test_offload.F90(159,7) ]
-      remark #15388: vectorization support: reference _6.0.2_ptr.var has aligned access   [ state_test_offload.F90(160,7) ]
-      remark #15388: vectorization support: reference _6.0.2_ptr.var has aligned access   [ state_test_offload.F90(161,7) ]
-      remark #15388: vectorization support: reference _6.0.2_ptr.var has aligned access   [ state_test_offload.F90(162,7) ]
+   LOOP BEGIN at state_test_offload.F90(161,7)
+      remark #25084: Preprocess Loopnests: Moving Out Store    [ state_test_offload.F90(169,7) ]
+      remark #15388: vectorization support: reference k_2darray has aligned access   [ state_test_offload.F90(162,7) ]
       remark #15388: vectorization support: reference _6.0.2_ptr.var has aligned access   [ state_test_offload.F90(163,7) ]
       remark #15388: vectorization support: reference _6.0.2_ptr.var has aligned access   [ state_test_offload.F90(164,7) ]
       remark #15388: vectorization support: reference _6.0.2_ptr.var has aligned access   [ state_test_offload.F90(165,7) ]
+      remark #15388: vectorization support: reference _6.0.2_ptr.var has aligned access   [ state_test_offload.F90(166,7) ]
+      remark #15388: vectorization support: reference _6.0.2_ptr.var has aligned access   [ state_test_offload.F90(167,7) ]
+      remark #15388: vectorization support: reference _6.0.2_ptr.var has aligned access   [ state_test_offload.F90(168,7) ]
       remark #15300: LOOP WAS VECTORIZED
       remark #15449: unmasked aligned unit stride stores: 6 
       remark #15450: unmasked unaligned unit stride loads: 1 
@@ -806,8 +818,8 @@ LOOP BEGIN at state_test_offload.F90(157,7)
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(279,16)
-   remark #25420: Collapsed with loop at line 279 
+LOOP BEGIN at state_test_offload.F90(290,16)
+   remark #25420: Collapsed with loop at line 290 
    remark #15388: vectorization support: reference _6.0.2_ptr.var has aligned access
    remark #15399: vectorization support: unroll factor set to 8
    remark #15300: LOOP WAS VECTORIZED
@@ -821,14 +833,14 @@ LOOP BEGIN at state_test_offload.F90(279,16)
    remark #15488: --- end vector loop cost summary ---
    remark #25015: Estimate of max trip count of loop=471420
 
-   LOOP BEGIN at state_test_offload.F90(279,16)
+   LOOP BEGIN at state_test_offload.F90(290,16)
       remark #25421: Loop eliminated in Collapsing 
 
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(280,16)
-   remark #25420: Collapsed with loop at line 280 
+LOOP BEGIN at state_test_offload.F90(291,16)
+   remark #25420: Collapsed with loop at line 291 
    remark #15388: vectorization support: reference _6.0.2_ptr.var has aligned access
    remark #15399: vectorization support: unroll factor set to 8
    remark #15300: LOOP WAS VECTORIZED
@@ -842,14 +854,14 @@ LOOP BEGIN at state_test_offload.F90(280,16)
    remark #15488: --- end vector loop cost summary ---
    remark #25015: Estimate of max trip count of loop=471420
 
-   LOOP BEGIN at state_test_offload.F90(280,16)
+   LOOP BEGIN at state_test_offload.F90(291,16)
       remark #25421: Loop eliminated in Collapsing 
 
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(281,16)
-   remark #25420: Collapsed with loop at line 281 
+LOOP BEGIN at state_test_offload.F90(292,16)
+   remark #25420: Collapsed with loop at line 292 
    remark #15388: vectorization support: reference _6.0.2_ptr.var has aligned access
    remark #15399: vectorization support: unroll factor set to 8
    remark #15300: LOOP WAS VECTORIZED
@@ -863,14 +875,14 @@ LOOP BEGIN at state_test_offload.F90(281,16)
    remark #15488: --- end vector loop cost summary ---
    remark #25015: Estimate of max trip count of loop=471420
 
-   LOOP BEGIN at state_test_offload.F90(281,16)
+   LOOP BEGIN at state_test_offload.F90(292,16)
       remark #25421: Loop eliminated in Collapsing 
 
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(282,16)
-   remark #25420: Collapsed with loop at line 282 
+LOOP BEGIN at state_test_offload.F90(293,16)
+   remark #25420: Collapsed with loop at line 293 
    remark #15388: vectorization support: reference _6.0.2_ptr.var has aligned access
    remark #15399: vectorization support: unroll factor set to 8
    remark #15300: LOOP WAS VECTORIZED
@@ -884,18 +896,18 @@ LOOP BEGIN at state_test_offload.F90(282,16)
    remark #15488: --- end vector loop cost summary ---
    remark #25015: Estimate of max trip count of loop=471420
 
-   LOOP BEGIN at state_test_offload.F90(282,16)
+   LOOP BEGIN at state_test_offload.F90(293,16)
       remark #25421: Loop eliminated in Collapsing 
 
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(283,16)
+LOOP BEGIN at state_test_offload.F90(294,16)
 <Peeled>
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(283,16)
-   remark #25420: Collapsed with loop at line 283 
+LOOP BEGIN at state_test_offload.F90(294,16)
+   remark #25420: Collapsed with loop at line 294 
    remark #15388: vectorization support: reference drhods has aligned access
    remark #15399: vectorization support: unroll factor set to 8
    remark #15300: LOOP WAS VECTORIZED
@@ -910,28 +922,28 @@ LOOP BEGIN at state_test_offload.F90(283,16)
    remark #15488: --- end vector loop cost summary ---
    remark #25015: Estimate of max trip count of loop=471420
 
-   LOOP BEGIN at state_test_offload.F90(283,16)
+   LOOP BEGIN at state_test_offload.F90(294,16)
       remark #25421: Loop eliminated in Collapsing 
 
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(283,16)
+LOOP BEGIN at state_test_offload.F90(294,16)
 <Remainder>
    remark #15388: vectorization support: reference drhods has aligned access
    remark #15301: REMAINDER LOOP WAS VECTORIZED
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(283,16)
+LOOP BEGIN at state_test_offload.F90(294,16)
 <Remainder>
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(284,16)
+LOOP BEGIN at state_test_offload.F90(295,16)
 <Peeled>
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(284,16)
-   remark #25420: Collapsed with loop at line 284 
+LOOP BEGIN at state_test_offload.F90(295,16)
+   remark #25420: Collapsed with loop at line 295 
    remark #15388: vectorization support: reference drhodt has aligned access
    remark #15399: vectorization support: unroll factor set to 8
    remark #15300: LOOP WAS VECTORIZED
@@ -946,28 +958,28 @@ LOOP BEGIN at state_test_offload.F90(284,16)
    remark #15488: --- end vector loop cost summary ---
    remark #25015: Estimate of max trip count of loop=471420
 
-   LOOP BEGIN at state_test_offload.F90(284,16)
+   LOOP BEGIN at state_test_offload.F90(295,16)
       remark #25421: Loop eliminated in Collapsing 
 
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(284,16)
+LOOP BEGIN at state_test_offload.F90(295,16)
 <Remainder>
    remark #15388: vectorization support: reference drhodt has aligned access
    remark #15301: REMAINDER LOOP WAS VECTORIZED
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(284,16)
+LOOP BEGIN at state_test_offload.F90(295,16)
 <Remainder>
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(285,16)
+LOOP BEGIN at state_test_offload.F90(296,16)
 <Peeled>
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(285,16)
-   remark #25420: Collapsed with loop at line 285 
+LOOP BEGIN at state_test_offload.F90(296,16)
+   remark #25420: Collapsed with loop at line 296 
    remark #15388: vectorization support: reference rhoout has aligned access
    remark #15399: vectorization support: unroll factor set to 8
    remark #15300: LOOP WAS VECTORIZED
@@ -982,28 +994,28 @@ LOOP BEGIN at state_test_offload.F90(285,16)
    remark #15488: --- end vector loop cost summary ---
    remark #25015: Estimate of max trip count of loop=471420
 
-   LOOP BEGIN at state_test_offload.F90(285,16)
+   LOOP BEGIN at state_test_offload.F90(296,16)
       remark #25421: Loop eliminated in Collapsing 
 
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(285,16)
+LOOP BEGIN at state_test_offload.F90(296,16)
 <Remainder>
    remark #15388: vectorization support: reference rhoout has aligned access
    remark #15301: REMAINDER LOOP WAS VECTORIZED
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(285,16)
+LOOP BEGIN at state_test_offload.F90(296,16)
 <Remainder>
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(286,16)
+LOOP BEGIN at state_test_offload.F90(297,16)
 <Peeled>
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(286,16)
-   remark #25420: Collapsed with loop at line 286 
+LOOP BEGIN at state_test_offload.F90(297,16)
+   remark #25420: Collapsed with loop at line 297 
    remark #15388: vectorization support: reference rhofull has aligned access
    remark #15399: vectorization support: unroll factor set to 8
    remark #15300: LOOP WAS VECTORIZED
@@ -1018,83 +1030,83 @@ LOOP BEGIN at state_test_offload.F90(286,16)
    remark #15488: --- end vector loop cost summary ---
    remark #25015: Estimate of max trip count of loop=471420
 
-   LOOP BEGIN at state_test_offload.F90(286,16)
+   LOOP BEGIN at state_test_offload.F90(297,16)
       remark #25421: Loop eliminated in Collapsing 
 
    LOOP END
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(286,16)
+LOOP BEGIN at state_test_offload.F90(297,16)
 <Remainder>
    remark #15388: vectorization support: reference rhofull has aligned access
    remark #15301: REMAINDER LOOP WAS VECTORIZED
 LOOP END
 
-LOOP BEGIN at state_test_offload.F90(286,16)
+LOOP BEGIN at state_test_offload.F90(297,16)
 <Remainder>
 LOOP END
 
     Report from: Code generation optimizations [cg]
 
-state_test_offload.F90(152,7):remark #34000: call to memset implemented inline with stores with proven (alignment, offset): (64, 0)
-state_test_offload.F90(187,1):remark #34026: call to memcpy implemented as a call to optimized library version
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(155,7):remark #34000: call to memset implemented inline with stores with proven (alignment, offset): (64, 0)
+state_test_offload.F90(190,1):remark #34026: call to memcpy implemented as a call to optimized library version
+state_test_offload.F90(190,1):remark #34026: call to memcpy implemented as a call to optimized library version
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+state_test_offload.F90(190,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
 ===========================================================================
 
     Report from: Interprocedural optimizations [ipo]
@@ -1136,7 +1148,7 @@ INLINE REPORT: (STATE_DUMMY) [1/2=50.0%] state_test_offload.F90(3,9)
   -> EXTERN: (38,12) for_random_number
   -> EXTERN: (39,12) for_random_number
   -> EXTERN: (40,12) for_random_number
-  -> (50,12) STATE_DUMMY:STATE (isz = 765) (sz = 788)
+  -> (50,12) STATE_DUMMY:STATE (isz = 864) (sz = 887)
      [[ Unable to inline callsite  <1>]]
   -> EXTERN: (59,7) for_write_seq_lis_xmit
   -> EXTERN: (59,7) for_write_seq_lis
@@ -1148,30 +1160,30 @@ INLINE REPORT: (STATE_DUMMY) [1/2=50.0%] state_test_offload.F90(3,9)
     Report from: Interprocedural optimizations [ipo]
 
 INLINE REPORT: (STATE_DUMMY:STATE) [2/2=100.0%] state_test_offload.F90(64,12)
-  -> EXTERN: (155,12) for_random_number
-  -> EXTERN: (164,41) __powr8i4
-  -> EXTERN: (190,20) omp_get_wtime
-  -> EXTERN: (273,18) omp_get_wtime
-  -> EXTERN: (277,7) for_write_seq_lis_xmit
-  -> EXTERN: (277,7) for_write_seq_lis
-  -> EXTERN: (279,7) for_write_seq_lis
-  -> EXTERN: (280,7) for_write_seq_lis
-  -> EXTERN: (281,7) for_write_seq_lis
-  -> EXTERN: (282,7) for_write_seq_lis
-  -> EXTERN: (283,7) for_write_seq_lis
-  -> EXTERN: (284,7) for_write_seq_lis
-  -> EXTERN: (285,7) for_write_seq_lis
-  -> EXTERN: (286,7) for_write_seq_lis
+  -> EXTERN: (158,12) for_random_number
+  -> EXTERN: (167,41) __powr8i4
+  -> EXTERN: (193,20) omp_get_wtime
+  -> EXTERN: (284,18) omp_get_wtime
+  -> EXTERN: (288,7) for_write_seq_lis_xmit
+  -> EXTERN: (288,7) for_write_seq_lis
+  -> EXTERN: (290,7) for_write_seq_lis
+  -> EXTERN: (291,7) for_write_seq_lis
+  -> EXTERN: (292,7) for_write_seq_lis
+  -> EXTERN: (293,7) for_write_seq_lis
+  -> EXTERN: (294,7) for_write_seq_lis
+  -> EXTERN: (295,7) for_write_seq_lis
+  -> EXTERN: (296,7) for_write_seq_lis
+  -> EXTERN: (297,7) for_write_seq_lis
 
 
     Report from: OpenMP optimizations [openmp]
 
-OpenMP Construct at state_test_offload.F90(200,7)
+OpenMP Construct at state_test_offload.F90(203,7)
    remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
 
     Report from: Offload optimizations [offload]
 
-OFFLOAD:state_dummy_IP_state_(187,1):  Outlined offload region
+OFFLOAD:state_dummy_IP_state_(190,1):  Outlined offload region
  Data received by target from host
        first_time, scalar size 8 bytes
        saltk, pointer to data with element count specified in pragma
@@ -1180,20 +1192,20 @@ OFFLOAD:state_dummy_IP_state_(187,1):  Outlined offload region
        drhodt, pointer to data with element count specified in pragma
        drhods, pointer to data with element count specified in pragma
        tempk, pointer to data with element count specified in pragma
-       __offload_stack_ptr_state$WORK1$_6_V$b1.0, pointer to array reference expression with base
-       __offload_stack_ptr_state$WORK2$_6_V$b0.0, pointer to array reference expression with base
-       __offload_stack_ptr_state$WORK3$_6_V$af.0, pointer to array reference expression with base
-       __offload_stack_ptr_state$WORK4$_6_V$ae.0, pointer to array reference expression with base
+       __offload_stack_ptr_state$WORK1$_6_V$b7.0, pointer to array reference expression with base
+       __offload_stack_ptr_state$WORK2$_6_V$b6.0, pointer to array reference expression with base
+       __offload_stack_ptr_state$WORK3$_6_V$b5.0, pointer to array reference expression with base
+       __offload_stack_ptr_state$WORK4$_6_V$b4.0, pointer to array reference expression with base
        __offload_stack_ptr_state$MWJFNUMS0T0$_6_V$93.0, pointer to array reference expression with base
        __offload_stack_ptr_state$MWJFNUMS0T2$_6_V$92.0, pointer to array reference expression with base
        __offload_stack_ptr_state$MWJFNUMS1T0$_6_V$91.0, pointer to array reference expression with base
        __offload_stack_ptr_state$MWJFDENS0T0$_6_V$90.0, pointer to array reference expression with base
        __offload_stack_ptr_state$MWJFDENS0T1$_6_V$8f.0, pointer to array reference expression with base
        __offload_stack_ptr_state$MWJFDENS0T3$_6_V$8e.0, pointer to array reference expression with base
-       __offload_stack_ptr_state$TMAX$_6_V$a4.0, pointer to array reference expression with base
-       __offload_stack_ptr_state$TMIN$_6_V$a5.0, pointer to array reference expression with base
-       __offload_stack_ptr_state$SMAX$_6_V$a2.0, pointer to array reference expression with base
-       __offload_stack_ptr_state$SMIN$_6_V$a3.0, pointer to array reference expression with base
+       __offload_stack_ptr_state$TMAX$_6_V$aa.0, pointer to array reference expression with base
+       __offload_stack_ptr_state$TMIN$_6_V$ab.0, pointer to array reference expression with base
+       __offload_stack_ptr_state$SMAX$_6_V$a8.0, pointer to array reference expression with base
+       __offload_stack_ptr_state$SMIN$_6_V$a9.0, pointer to array reference expression with base
        kk, pointer to data with element count specified in pragma
        mwjfnums0t1, scalar size 8 bytes
        mwjfnums0t3, scalar size 8 bytes
@@ -1216,6 +1228,12 @@ OFFLOAD:state_dummy_IP_state_(187,1):  Outlined offload region
        sqr, scalar size 8 bytes
        j, scalar size 4 bytes
        i, scalar size 4 bytes
+       mwjfnums0t0_temp, scalar size 8 bytes
+       mwjfnums0t2_temp, scalar size 8 bytes
+       mwjfnums1t0_temp, scalar size 8 bytes
+       mwjfdens0t0_temp, scalar size 8 bytes
+       mwjfdens0t1_temp, scalar size 8 bytes
+       mwjfdens0t3_temp, scalar size 8 bytes
        end_time, scalar size 8 bytes
  Data sent from target to host
        first_time, scalar size 8 bytes
@@ -1258,84 +1276,368 @@ OFFLOAD:state_dummy_IP_state_(187,1):  Outlined offload region
        sqr, scalar size 8 bytes
        j, scalar size 4 bytes
        i, scalar size 4 bytes
+       mwjfnums0t0_temp, scalar size 8 bytes
+       mwjfnums0t2_temp, scalar size 8 bytes
+       mwjfnums1t0_temp, scalar size 8 bytes
+       mwjfdens0t0_temp, scalar size 8 bytes
+       mwjfdens0t1_temp, scalar size 8 bytes
+       mwjfdens0t3_temp, scalar size 8 bytes
        end_time, scalar size 8 bytes
 
 
     Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
 
 
-LOOP BEGIN at state_test_offload.F90(212,7)
+LOOP BEGIN at state_test_offload.F90(217,7)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at state_test_offload.F90(216,7)
-   <Predicate Optimized v1>
-      remark #25422: Invariant Condition at line 236 hoisted out of this loop
-      remark #15388: vectorization support: reference tempk has aligned access   [ state_test_offload.F90(219,7) ]
-      remark #15388: vectorization support: reference saltk has aligned access   [ state_test_offload.F90(222,7) ]
-      remark #15388: vectorization support: reference mwjfnums0t0 has aligned access   [ state_test_offload.F90(225,7) ]
-      remark #15388: vectorization support: reference mwjfnums0t2 has aligned access   [ state_test_offload.F90(225,7) ]
-      remark #15388: vectorization support: reference mwjfnums1t0 has aligned access   [ state_test_offload.F90(225,7) ]
-      remark #15388: vectorization support: reference mwjfdens0t0 has aligned access   [ state_test_offload.F90(234,7) ]
-      remark #15388: vectorization support: reference mwjfdens0t1 has aligned access   [ state_test_offload.F90(234,7) ]
+   LOOP BEGIN at state_test_offload.F90(221,7)
+   <Predicate Optimized v7>
+      remark #25422: Invariant Condition at line 247 hoisted out of this loop
+      remark #25422: Invariant Condition at line 251 hoisted out of this loop
+      remark #25422: Invariant Condition at line 255 hoisted out of this loop
+      remark #25422: Invariant Condition at line 269 hoisted out of this loop
+      remark #15388: vectorization support: reference tempk has aligned access   [ state_test_offload.F90(224,7) ]
+      remark #15388: vectorization support: reference saltk has aligned access   [ state_test_offload.F90(227,7) ]
+      remark #15388: vectorization support: reference mwjfnums0t0 has aligned access   [ state_test_offload.F90(229,7) ]
+      remark #15388: vectorization support: reference mwjfnums1t0 has aligned access   [ state_test_offload.F90(231,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t0 has aligned access   [ state_test_offload.F90(232,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t1 has aligned access   [ state_test_offload.F90(233,7) ]
       remark #15388: vectorization support: reference mwjfdens0t3 has aligned access   [ state_test_offload.F90(234,7) ]
-      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(237,11) ]
-      remark #15412: vectorization support: streaming store was generated for rhoout   [ state_test_offload.F90(237,11) ]
+      remark #15388: vectorization support: reference mwjfnums0t2 has aligned access   [ state_test_offload.F90(236,7) ]
+      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(248,11) ]
+      remark #15388: vectorization support: reference rhofull has aligned access   [ state_test_offload.F90(252,11) ]
+      remark #15388: vectorization support: reference drhodt has aligned access   [ state_test_offload.F90(266,11) ]
+      remark #15388: vectorization support: reference mwjfnums0t2 has aligned access   [ state_test_offload.F90(266,11) ]
+      remark #15388: vectorization support: reference mwjfdens0t3 has aligned access   [ state_test_offload.F90(266,11) ]
+      remark #15388: vectorization support: reference drhods has aligned access   [ state_test_offload.F90(277,10) ]
+      remark #15412: vectorization support: streaming store was generated for rhoout   [ state_test_offload.F90(248,11) ]
+      remark #15412: vectorization support: streaming store was generated for rhofull   [ state_test_offload.F90(252,11) ]
+      remark #15412: vectorization support: streaming store was generated for drhodt   [ state_test_offload.F90(266,11) ]
+      remark #15412: vectorization support: streaming store was generated for drhods   [ state_test_offload.F90(277,10) ]
       remark #15301: SIMD LOOP WAS VECTORIZED
-      remark #15467: unmasked aligned streaming stores: 1 
+      remark #15467: unmasked aligned streaming stores: 4 
       remark #15475: --- begin vector loop cost summary ---
-      remark #15476: scalar loop cost: 191 
-      remark #15477: vector loop cost: 26.370 
-      remark #15478: estimated potential speedup: 7.230 
-      remark #15479: lightweight vector operations: 94 
+      remark #15476: scalar loop cost: 345 
+      remark #15477: vector loop cost: 54.000 
+      remark #15478: estimated potential speedup: 6.380 
+      remark #15479: lightweight vector operations: 215 
       remark #15488: --- end vector loop cost summary ---
       remark #25018: Total number of lines prefetched=16
       remark #25019: Number of spatial prefetches=16, dist=8
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(218,16) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(220,16) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(223,16) ]
       remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(225,16) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(225,61) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(226,42) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(229,16) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(229,41) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(230,18) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(229,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(231,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(232,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(233,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(234,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(236,61) ]
       remark #25015: Estimate of max trip count of loop=1000
    LOOP END
 
-   LOOP BEGIN at state_test_offload.F90(216,7)
-   <Predicate Optimized v2>
-      remark #15388: vectorization support: reference tempk has aligned access   [ state_test_offload.F90(219,7) ]
-      remark #15388: vectorization support: reference saltk has aligned access   [ state_test_offload.F90(222,7) ]
-      remark #15388: vectorization support: reference mwjfnums0t0 has aligned access   [ state_test_offload.F90(225,7) ]
-      remark #15388: vectorization support: reference mwjfnums0t2 has aligned access   [ state_test_offload.F90(225,7) ]
-      remark #15388: vectorization support: reference mwjfnums1t0 has aligned access   [ state_test_offload.F90(225,7) ]
-      remark #15388: vectorization support: reference mwjfdens0t0 has aligned access   [ state_test_offload.F90(234,7) ]
-      remark #15388: vectorization support: reference mwjfdens0t1 has aligned access   [ state_test_offload.F90(234,7) ]
+   LOOP BEGIN at state_test_offload.F90(221,7)
+   <Predicate Optimized v8>
+      remark #15388: vectorization support: reference tempk has aligned access   [ state_test_offload.F90(224,7) ]
+      remark #15388: vectorization support: reference saltk has aligned access   [ state_test_offload.F90(227,7) ]
+      remark #15388: vectorization support: reference mwjfnums0t0 has aligned access   [ state_test_offload.F90(229,7) ]
+      remark #15388: vectorization support: reference mwjfnums1t0 has aligned access   [ state_test_offload.F90(231,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t0 has aligned access   [ state_test_offload.F90(232,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t1 has aligned access   [ state_test_offload.F90(233,7) ]
       remark #15388: vectorization support: reference mwjfdens0t3 has aligned access   [ state_test_offload.F90(234,7) ]
+      remark #15388: vectorization support: reference mwjfnums0t2 has aligned access   [ state_test_offload.F90(236,7) ]
+      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(248,11) ]
+      remark #15388: vectorization support: reference rhofull has aligned access   [ state_test_offload.F90(252,11) ]
+      remark #15388: vectorization support: reference drhodt has aligned access   [ state_test_offload.F90(266,11) ]
+      remark #15388: vectorization support: reference mwjfnums0t2 has aligned access   [ state_test_offload.F90(266,11) ]
+      remark #15388: vectorization support: reference mwjfdens0t3 has aligned access   [ state_test_offload.F90(266,11) ]
+      remark #15412: vectorization support: streaming store was generated for rhoout   [ state_test_offload.F90(248,11) ]
+      remark #15412: vectorization support: streaming store was generated for rhofull   [ state_test_offload.F90(252,11) ]
+      remark #15412: vectorization support: streaming store was generated for drhodt   [ state_test_offload.F90(266,11) ]
       remark #15301: SIMD LOOP WAS VECTORIZED
+      remark #15467: unmasked aligned streaming stores: 3 
       remark #15475: --- begin vector loop cost summary ---
-      remark #15476: scalar loop cost: 185 
-      remark #15477: vector loop cost: 25.370 
-      remark #15478: estimated potential speedup: 7.280 
-      remark #15479: lightweight vector operations: 89 
+      remark #15476: scalar loop cost: 289 
+      remark #15477: vector loop cost: 43.750 
+      remark #15478: estimated potential speedup: 6.600 
+      remark #15479: lightweight vector operations: 172 
       remark #15488: --- end vector loop cost summary ---
       remark #25018: Total number of lines prefetched=16
       remark #25019: Number of spatial prefetches=16, dist=8
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(218,16) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(220,16) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(223,16) ]
       remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(225,16) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(225,61) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(226,42) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(229,16) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(229,41) ]
-      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(230,18) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(229,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(231,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(232,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(233,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(234,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(236,61) ]
+      remark #25015: Estimate of max trip count of loop=1000
+   LOOP END
+
+   LOOP BEGIN at state_test_offload.F90(221,7)
+   <Predicate Optimized v9>
+      remark #25422: Invariant Condition at line 269 hoisted out of this loop
+      remark #15388: vectorization support: reference tempk has aligned access   [ state_test_offload.F90(224,7) ]
+      remark #15388: vectorization support: reference saltk has aligned access   [ state_test_offload.F90(227,7) ]
+      remark #15388: vectorization support: reference mwjfnums0t0 has aligned access   [ state_test_offload.F90(229,7) ]
+      remark #15388: vectorization support: reference mwjfnums1t0 has aligned access   [ state_test_offload.F90(231,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t0 has aligned access   [ state_test_offload.F90(232,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t1 has aligned access   [ state_test_offload.F90(233,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t3 has aligned access   [ state_test_offload.F90(234,7) ]
+      remark #15388: vectorization support: reference mwjfnums0t2 has aligned access   [ state_test_offload.F90(236,7) ]
+      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(248,11) ]
+      remark #15388: vectorization support: reference rhofull has aligned access   [ state_test_offload.F90(252,11) ]
+      remark #15388: vectorization support: reference drhods has aligned access   [ state_test_offload.F90(277,10) ]
+      remark #15412: vectorization support: streaming store was generated for rhoout   [ state_test_offload.F90(248,11) ]
+      remark #15412: vectorization support: streaming store was generated for rhofull   [ state_test_offload.F90(252,11) ]
+      remark #15412: vectorization support: streaming store was generated for drhods   [ state_test_offload.F90(277,10) ]
+      remark #15301: SIMD LOOP WAS VECTORIZED
+      remark #15467: unmasked aligned streaming stores: 3 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 272 
+      remark #15477: vector loop cost: 41.120 
+      remark #15478: estimated potential speedup: 6.610 
+      remark #15479: lightweight vector operations: 160 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25018: Total number of lines prefetched=16
+      remark #25019: Number of spatial prefetches=16, dist=8
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(223,16) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(225,16) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(229,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(231,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(232,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(233,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(234,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(236,61) ]
+      remark #25015: Estimate of max trip count of loop=1000
+   LOOP END
+
+   LOOP BEGIN at state_test_offload.F90(221,7)
+   <Predicate Optimized v10>
+      remark #15388: vectorization support: reference tempk has aligned access   [ state_test_offload.F90(224,7) ]
+      remark #15388: vectorization support: reference saltk has aligned access   [ state_test_offload.F90(227,7) ]
+      remark #15388: vectorization support: reference mwjfnums0t0 has aligned access   [ state_test_offload.F90(229,7) ]
+      remark #15388: vectorization support: reference mwjfnums1t0 has aligned access   [ state_test_offload.F90(231,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t0 has aligned access   [ state_test_offload.F90(232,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t1 has aligned access   [ state_test_offload.F90(233,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t3 has aligned access   [ state_test_offload.F90(234,7) ]
+      remark #15388: vectorization support: reference mwjfnums0t2 has aligned access   [ state_test_offload.F90(236,7) ]
+      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(248,11) ]
+      remark #15388: vectorization support: reference rhofull has aligned access   [ state_test_offload.F90(252,11) ]
+      remark #15412: vectorization support: streaming store was generated for rhoout   [ state_test_offload.F90(248,11) ]
+      remark #15412: vectorization support: streaming store was generated for rhofull   [ state_test_offload.F90(252,11) ]
+      remark #15301: SIMD LOOP WAS VECTORIZED
+      remark #15467: unmasked aligned streaming stores: 2 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 215 
+      remark #15477: vector loop cost: 30.870 
+      remark #15478: estimated potential speedup: 6.960 
+      remark #15479: lightweight vector operations: 117 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25018: Total number of lines prefetched=16
+      remark #25019: Number of spatial prefetches=16, dist=8
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(223,16) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(225,16) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(229,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(231,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(232,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(233,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(234,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(236,61) ]
+      remark #25015: Estimate of max trip count of loop=1000
+   LOOP END
+
+   LOOP BEGIN at state_test_offload.F90(221,7)
+   <Predicate Optimized v13>
+      remark #25422: Invariant Condition at line 255 hoisted out of this loop
+      remark #25422: Invariant Condition at line 269 hoisted out of this loop
+      remark #15388: vectorization support: reference tempk has aligned access   [ state_test_offload.F90(224,7) ]
+      remark #15388: vectorization support: reference saltk has aligned access   [ state_test_offload.F90(227,7) ]
+      remark #15388: vectorization support: reference mwjfnums0t0 has aligned access   [ state_test_offload.F90(229,7) ]
+      remark #15388: vectorization support: reference mwjfnums1t0 has aligned access   [ state_test_offload.F90(231,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t0 has aligned access   [ state_test_offload.F90(232,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t1 has aligned access   [ state_test_offload.F90(233,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t3 has aligned access   [ state_test_offload.F90(234,7) ]
+      remark #15388: vectorization support: reference mwjfnums0t2 has aligned access   [ state_test_offload.F90(236,7) ]
+      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(248,11) ]
+      remark #15388: vectorization support: reference drhodt has aligned access   [ state_test_offload.F90(266,11) ]
+      remark #15388: vectorization support: reference mwjfnums0t2 has aligned access   [ state_test_offload.F90(266,11) ]
+      remark #15388: vectorization support: reference mwjfdens0t3 has aligned access   [ state_test_offload.F90(266,11) ]
+      remark #15388: vectorization support: reference drhods has aligned access   [ state_test_offload.F90(277,10) ]
+      remark #15412: vectorization support: streaming store was generated for rhoout   [ state_test_offload.F90(248,11) ]
+      remark #15412: vectorization support: streaming store was generated for drhodt   [ state_test_offload.F90(266,11) ]
+      remark #15412: vectorization support: streaming store was generated for drhods   [ state_test_offload.F90(277,10) ]
+      remark #15301: SIMD LOOP WAS VECTORIZED
+      remark #15467: unmasked aligned streaming stores: 3 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 339 
+      remark #15477: vector loop cost: 53.000 
+      remark #15478: estimated potential speedup: 6.390 
+      remark #15479: lightweight vector operations: 210 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25018: Total number of lines prefetched=16
+      remark #25019: Number of spatial prefetches=16, dist=8
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(223,16) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(225,16) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(229,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(231,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(232,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(233,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(234,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(236,61) ]
+      remark #25015: Estimate of max trip count of loop=1000
+   LOOP END
+
+   LOOP BEGIN at state_test_offload.F90(221,7)
+   <Predicate Optimized v14>
+      remark #15388: vectorization support: reference tempk has aligned access   [ state_test_offload.F90(224,7) ]
+      remark #15388: vectorization support: reference saltk has aligned access   [ state_test_offload.F90(227,7) ]
+      remark #15388: vectorization support: reference mwjfnums0t0 has aligned access   [ state_test_offload.F90(229,7) ]
+      remark #15388: vectorization support: reference mwjfnums1t0 has aligned access   [ state_test_offload.F90(231,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t0 has aligned access   [ state_test_offload.F90(232,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t1 has aligned access   [ state_test_offload.F90(233,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t3 has aligned access   [ state_test_offload.F90(234,7) ]
+      remark #15388: vectorization support: reference mwjfnums0t2 has aligned access   [ state_test_offload.F90(236,7) ]
+      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(248,11) ]
+      remark #15388: vectorization support: reference drhodt has aligned access   [ state_test_offload.F90(266,11) ]
+      remark #15388: vectorization support: reference mwjfnums0t2 has aligned access   [ state_test_offload.F90(266,11) ]
+      remark #15388: vectorization support: reference mwjfdens0t3 has aligned access   [ state_test_offload.F90(266,11) ]
+      remark #15412: vectorization support: streaming store was generated for rhoout   [ state_test_offload.F90(248,11) ]
+      remark #15412: vectorization support: streaming store was generated for drhodt   [ state_test_offload.F90(266,11) ]
+      remark #15301: SIMD LOOP WAS VECTORIZED
+      remark #15467: unmasked aligned streaming stores: 2 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 283 
+      remark #15477: vector loop cost: 42.750 
+      remark #15478: estimated potential speedup: 6.610 
+      remark #15479: lightweight vector operations: 167 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25018: Total number of lines prefetched=16
+      remark #25019: Number of spatial prefetches=16, dist=8
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(223,16) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(225,16) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(229,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(231,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(232,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(233,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(234,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(236,61) ]
+      remark #25015: Estimate of max trip count of loop=1000
+   LOOP END
+
+   LOOP BEGIN at state_test_offload.F90(221,7)
+   <Predicate Optimized v15>
+      remark #25422: Invariant Condition at line 269 hoisted out of this loop
+      remark #15388: vectorization support: reference tempk has aligned access   [ state_test_offload.F90(224,7) ]
+      remark #15388: vectorization support: reference saltk has aligned access   [ state_test_offload.F90(227,7) ]
+      remark #15388: vectorization support: reference mwjfnums0t0 has aligned access   [ state_test_offload.F90(229,7) ]
+      remark #15388: vectorization support: reference mwjfnums1t0 has aligned access   [ state_test_offload.F90(231,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t0 has aligned access   [ state_test_offload.F90(232,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t1 has aligned access   [ state_test_offload.F90(233,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t3 has aligned access   [ state_test_offload.F90(234,7) ]
+      remark #15388: vectorization support: reference mwjfnums0t2 has aligned access   [ state_test_offload.F90(236,7) ]
+      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(248,11) ]
+      remark #15388: vectorization support: reference drhods has aligned access   [ state_test_offload.F90(277,10) ]
+      remark #15412: vectorization support: streaming store was generated for rhoout   [ state_test_offload.F90(248,11) ]
+      remark #15412: vectorization support: streaming store was generated for drhods   [ state_test_offload.F90(277,10) ]
+      remark #15301: SIMD LOOP WAS VECTORIZED
+      remark #15467: unmasked aligned streaming stores: 2 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 265 
+      remark #15477: vector loop cost: 40.120 
+      remark #15478: estimated potential speedup: 6.600 
+      remark #15479: lightweight vector operations: 155 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25018: Total number of lines prefetched=16
+      remark #25019: Number of spatial prefetches=16, dist=8
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(223,16) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(225,16) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(229,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(231,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(232,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(233,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(234,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(236,61) ]
+      remark #25015: Estimate of max trip count of loop=1000
+   LOOP END
+
+   LOOP BEGIN at state_test_offload.F90(221,7)
+   <Predicate Optimized v16>
+      remark #15388: vectorization support: reference tempk has aligned access   [ state_test_offload.F90(224,7) ]
+      remark #15388: vectorization support: reference saltk has aligned access   [ state_test_offload.F90(227,7) ]
+      remark #15388: vectorization support: reference mwjfnums0t0 has aligned access   [ state_test_offload.F90(229,7) ]
+      remark #15388: vectorization support: reference mwjfnums1t0 has aligned access   [ state_test_offload.F90(231,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t0 has aligned access   [ state_test_offload.F90(232,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t1 has aligned access   [ state_test_offload.F90(233,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t3 has aligned access   [ state_test_offload.F90(234,7) ]
+      remark #15388: vectorization support: reference mwjfnums0t2 has aligned access   [ state_test_offload.F90(236,7) ]
+      remark #15388: vectorization support: reference rhoout has aligned access   [ state_test_offload.F90(248,11) ]
+      remark #15412: vectorization support: streaming store was generated for rhoout   [ state_test_offload.F90(248,11) ]
+      remark #15301: SIMD LOOP WAS VECTORIZED
+      remark #15467: unmasked aligned streaming stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 209 
+      remark #15477: vector loop cost: 29.870 
+      remark #15478: estimated potential speedup: 6.990 
+      remark #15479: lightweight vector operations: 112 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25018: Total number of lines prefetched=16
+      remark #25019: Number of spatial prefetches=16, dist=8
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(223,16) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(225,16) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(229,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(231,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(232,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(233,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(234,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(236,61) ]
+      remark #25015: Estimate of max trip count of loop=1000
+   LOOP END
+
+   LOOP BEGIN at state_test_offload.F90(221,7)
+   <Predicate Optimized v2>
+      remark #15388: vectorization support: reference tempk has aligned access   [ state_test_offload.F90(224,7) ]
+      remark #15388: vectorization support: reference saltk has aligned access   [ state_test_offload.F90(227,7) ]
+      remark #15388: vectorization support: reference mwjfnums0t0 has aligned access   [ state_test_offload.F90(229,7) ]
+      remark #15388: vectorization support: reference mwjfnums1t0 has aligned access   [ state_test_offload.F90(231,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t0 has aligned access   [ state_test_offload.F90(232,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t1 has aligned access   [ state_test_offload.F90(233,7) ]
+      remark #15388: vectorization support: reference mwjfdens0t3 has aligned access   [ state_test_offload.F90(234,7) ]
+      remark #15388: vectorization support: reference mwjfnums0t2 has aligned access   [ state_test_offload.F90(236,7) ]
+      remark #15388: vectorization support: reference rhofull has aligned access   [ state_test_offload.F90(252,11) ]
+      remark #15388: vectorization support: reference drhodt has aligned access   [ state_test_offload.F90(266,11) ]
+      remark #15388: vectorization support: reference mwjfnums0t2 has aligned access   [ state_test_offload.F90(266,11) ]
+      remark #15388: vectorization support: reference mwjfdens0t3 has aligned access   [ state_test_offload.F90(266,11) ]
+      remark #15388: vectorization support: reference drhods has aligned access   [ state_test_offload.F90(277,10) ]
+      remark #15301: SIMD LOOP WAS VECTORIZED
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 409 
+      remark #15477: vector loop cost: 53.370 
+      remark #15478: estimated potential speedup: 7.650 
+      remark #15479: lightweight vector operations: 213 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25018: Total number of lines prefetched=22
+      remark #25019: Number of spatial prefetches=22, dist=8
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(223,16) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(225,16) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(229,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(231,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(232,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(233,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(234,7) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(236,61) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(252,11) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(266,11) ]
+      remark #25139: Using second-level distance 2 for prefetching spatial memory reference   [ state_test_offload.F90(277,10) ]
       remark #25015: Estimate of max trip count of loop=1000
    LOOP END
 LOOP END
 
     Report from: Code generation optimizations [cg]
 
-state_test_offload.F90(187,1):remark #34026: call to memcpy implemented as a call to optimized library version
-state_test_offload.F90(187,1):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (64, 0), and destination (alignment, offset): (64, 0)
+state_test_offload.F90(190,1):remark #34026: call to memcpy implemented as a call to optimized library version
+state_test_offload.F90(190,1):remark #34026: call to memcpy implemented as a call to optimized library version
 ===========================================================================
 
     Report from: Interprocedural optimizations [ipo]

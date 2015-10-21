@@ -141,8 +141,11 @@ subroutine state(k, kk, TEMPK, SALTK, this_block, K_2Darray, RHOOUT, RHOFULL, DR
       mwjfnums0t1, mwjfnums0t3,              &
       mwjfnums1t1, mwjfnums2t0,              &
       mwjfdens1t0, mwjfdens0t2, mwjfdens0t4, &
-      mwjfdens1t1, mwjfdens1t3,                           &
-      mwjfdensqt0, mwjfdensqt2
+      mwjfdens1t1, mwjfdens1t3,              &
+      mwjfdensqt0, mwjfdensqt2,              &
+      mwjfnums0t0_temp,mwjfnums0t2_temp,mwjfnums1t0_temp,   &
+      mwjfdens0t0_temp,mwjfdens0t1_temp,mwjfdens0t3_temp 
+       
  
       real (r8), dimension(2880,2619) :: mwjfnums0t0,mwjfnums0t2,mwjfnums1t0
       real (r8), dimension(2880,2619) :: mwjfdens0t0,mwjfdens0t1,mwjfdens0t3
@@ -206,7 +209,9 @@ subroutine state(k, kk, TEMPK, SALTK, this_block, K_2Darray, RHOOUT, RHOFULL, DR
       !$omp firstprivate(mwjfdens0t2) &
       !$omp firstprivate(mwjfdens0t4,mwjfdens1t0,mwjfdens1t1,mwjfdens1t3) &
       !$omp firstprivate(mwjfdensqt0,mwjfdensqt2) &
-      !$omp private(TWORK1,TWORK2,TWORK3,TWORK4,TDENOMK,TQ,SQ,SQR)
+      !$omp private(TWORK1,TWORK2,TWORK3,TWORK4,TDENOMK,TQ,SQ,SQR) &
+      !$omp private(mwjfnums0t0_temp,mwjfnums0t2_temp,mwjfnums1t0_temp) &
+      !$omp private(mwjfdens0t0_temp,mwjfdens0t1_temp,mwjfdens0t3_temp) 
 
       !$omp do schedule(static)  
       do j=1,2619
@@ -221,13 +226,19 @@ subroutine state(k, kk, TEMPK, SALTK, this_block, K_2Darray, RHOOUT, RHOFULL, DR
       SQ = max(SQ,smin(kk))
       SQ  = c1000*SQ
       SQR = sqrt(SQ)
+      mwjfnums0t0_temp = mwjfnums0t0(i,j) 
+      mwjfnums0t2_temp = mwjfnums0t2(i,j)
+      mwjfnums1t0_temp = mwjfnums1t0(i,j)
+      mwjfdens0t0_temp = mwjfdens0t0(i,j)
+      mwjfdens0t1_temp = mwjfdens0t1(i,j)
+      mwjfdens0t3_temp = mwjfdens0t3(i,j) 
 
-      TWORK1 = mwjfnums0t0(i,j) + TQ * (mwjfnums0t1 + TQ * (mwjfnums0t2(i,j) + &
-              mwjfnums0t3 * TQ)) + SQ * (mwjfnums1t0(i,j) +              &
+      TWORK1 = mwjfnums0t0_temp + TQ * (mwjfnums0t1 + TQ * (mwjfnums0t2(i,j) + &
+              mwjfnums0t3 * TQ)) + SQ * (mwjfnums1t0_temp +              &
               mwjfnums1t1 * TQ + mwjfnums2t0 * SQ )
       
-      TWORK2 = mwjfdens0t0(i,j) + TQ * (mwjfdens0t1(i,j) + TQ * (mwjfdens0t2 +    &
-           TQ * (mwjfdens0t3(i,j) + mwjfdens0t4 * TQ ))) +                   &
+      TWORK2 = mwjfdens0t0_temp + TQ * (mwjfdens0t1_temp + TQ * (mwjfdens0t2 +    &
+           TQ * (mwjfdens0t3_temp + mwjfdens0t4 * TQ ))) +                   &
            SQ * (mwjfdens1t0 + TQ * (mwjfdens1t1 + TQ * TQ * mwjfdens1t3)+ &
            SQR * (mwjfdensqt0 + TQ * TQ * mwjfdensqt2))
 
@@ -247,7 +258,7 @@ subroutine state(k, kk, TEMPK, SALTK, this_block, K_2Darray, RHOOUT, RHOFULL, DR
                  c3*mwjfnums0t3 * TQ) + mwjfnums1t1 * SQ
 
         TWORK4 = &! dP_2/dT
-                 mwjfdens0t1(i,j) + SQ * mwjfdens1t1 +               &
+                 mwjfdens0t1_temp + SQ * mwjfdens1t1 +               &
                  TQ * (c2*(mwjfdens0t2 + SQ * SQR * mwjfdensqt2) +  &
                  TQ * (c3*(mwjfdens0t3(i,j) + SQ * mwjfdens1t3) +    &
                  TQ *  c4*mwjfdens0t4))
@@ -257,7 +268,7 @@ subroutine state(k, kk, TEMPK, SALTK, this_block, K_2Darray, RHOOUT, RHOFULL, DR
 
       if (present(DRHODS)) then
          TWORK3 = &! dP_1/dS
-                 mwjfnums1t0(i,j) + mwjfnums1t1 * TQ + c2*mwjfnums2t0 * SQ
+                 mwjfnums1t0_temp + mwjfnums1t1 * TQ + c2*mwjfnums2t0 * SQ
 
          TWORK4 = mwjfdens1t0 +   &! dP_2/dS
                  TQ * (mwjfdens1t1 + TQ * TQ * mwjfdens1t3) +   &
